@@ -10,8 +10,6 @@ export default {
   <ion-app>
     <ion-header>
       <RouterLink to="/">Home |</RouterLink>
-      <RouterLink to="/about">About |</RouterLink>
-      <RouterLink to="/system">System</RouterLink>
     </ion-header>
     <ion-router-outlet />
   </ion-app>
