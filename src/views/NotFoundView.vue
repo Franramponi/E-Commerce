@@ -1,16 +1,13 @@
-<template>
-  <ion-page>
-    <h2>Página no encontrada</h2>
-  </ion-page>
-</template>
-
 <script>
 import {IonPage} from '@ionic/vue'
 export default {
-  components: {IonPage},
+  components: {IonPage}
 }
+
 </script>
 
-<style>
-
-</style>
+<template>
+  <ion-page>
+    <h2>Page not found</h2>
+  </ion-page>
+</template>
