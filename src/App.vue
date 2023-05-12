@@ -6,6 +6,7 @@ export default {
 }
 </script>
 
+
 <template>
   <ion-app>
     <ion-header>
@@ -21,4 +22,5 @@ export default {
 </template>
 
 <style>
+  @import './style/style.css';
 </style>
