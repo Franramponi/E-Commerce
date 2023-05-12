@@ -1,13 +1,16 @@
 <script>
-import {IonPage} from '@ionic/vue'
+import { IonPage } from '@ionic/vue'
 export default {
-  components: {IonPage}
+  components: { IonPage }
 }
 
 </script>
 
 <template>
   <ion-page>
-    <h2>Home page</h2>
+    <div>
+      <h2>ME ENCANTAN LOS LIBROS</h2>
+      <P>Y LAS LAPTOPS</P>
+    </div>
   </ion-page>
 </template>
