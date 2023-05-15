@@ -6,6 +6,7 @@ import CartView from '../views/CartView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import VendorView from '../views/VendorView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
+import { useLoginStore } from '../stores/login'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,7 +19,8 @@ const router = createRouter({
     {
       path: '/products',
       name: 'products',
-      component: ProductsView
+      component: ProductsView,
+      meta: { RequireAuth: true, permLevel: 1 }
     },
     {
       path: '/login',
@@ -28,17 +30,20 @@ const router = createRouter({
     {
       path: '/cart',
       name: 'cart',
-      component: CartView
+      component: CartView,
+      meta: { RequireAuth: true, permLevel: 1 }
     },
     {
       path: '/profile',
       name: 'profile',
-      component: ProfileView
+      component: ProfileView,
+      meta: { RequireAuth: true, permLevel: 1 }
     },
     {
       path: '/vendor',
       name: 'vendor',
-      component: VendorView
+      component: VendorView,
+      meta: { RequireAuth: true, permLevel: 2 }
     },
     {
       path:'/:pathMatch(.*)*',
@@ -46,6 +51,16 @@ const router = createRouter({
       component: NotFoundView
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  const store = useLoginStore();
+  if (to.matched.some(r => r.meta.RequireAuth) && (!store.isLogin || !store.hasPermission(to.meta.permLevel))) {
+    next('/login');
+  }
+  else {
+    next();
+  }
 })
 
 export default router
