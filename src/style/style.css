@@ -12,3 +12,23 @@
 	margin-inline: 1rem;
 	font-size: 1.5rem;
 }
+
+.invisible-scroll {
+	overflow-y: scroll;
+}
+
+.invisible-scroll::-webkit-scrollbar {
+	display: none;
+}
+
+.product-card {
+	width: 30%;
+	height: 25rem;
+	display: inline-block;
+	margin: 1.5rem, 1.5rem, 1.5rem, 1.5rem
+}
+
+.products-view {
+	text-align: center;
+	justify-content: center;
+}
