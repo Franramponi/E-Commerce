@@ -20,7 +20,7 @@ export default {
 
 <template>
   <ion-page>
-    <h2>Products page</h2>
+    <h2 class="title">Products page</h2>
     <div class="invisible-scroll">
       <div class="products-view">
         <ion-card class="product-card" v-for="p in products" :key="p.id">

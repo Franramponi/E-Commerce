@@ -39,11 +39,13 @@ export default {
 
 <template>
   <ion-page>
-    <div>
+    <div class="login-container">
+		<div class="login-form">
       <h2>Login page</h2>
       <ion-input v-model="user.name" label="Username:" placeholder="username"></ion-input>
       <ion-input v-model="user.pass" label="Password:" type="password" placeholder="password"></ion-input>
       <ion-button @click="tryLogin">Login</ion-button>
+	</div>
     </div>
   </ion-page>
 </template>

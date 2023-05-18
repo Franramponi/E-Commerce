@@ -8,6 +8,6 @@ export default {
 
 <template>
   <ion-page>
-    <h2>Page not found</h2>
+    <h2 class="title">Page not found</h2>
   </ion-page>
 </template>

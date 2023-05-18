@@ -33,10 +33,10 @@ export default {
         <RouterLink class="nav-item logout" v-if="isLogin" to="/logout">(Log Out)</RouterLink>
       </div>
     </ion-header>
-    <ion-content>
+    <ion-content class="main">
       <ion-router-outlet />
     </ion-content>
-    <ion-footer>
+    <ion-footer class="footer">
       <h2>Footer</h2>
     </ion-footer>
   </ion-app>

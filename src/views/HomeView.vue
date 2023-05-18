@@ -9,7 +9,7 @@ export default {
 <template>
   <ion-page>
     <div>
-      <h2>ME ENCANTAN LOS LIBROS</h2>
+      <h2 class="title">ME ENCANTAN LOS LIBROS</h2>
       <P>Y LAS LAPTOPS</P>
     </div>
   </ion-page>

@@ -8,6 +8,6 @@ export default {
 
 <template>
   <ion-page>
-    <h2>Vendor page</h2>
+    <h2 class="title">Vendor page</h2>
   </ion-page>
 </template>
