@@ -1,10 +1,10 @@
 <script>
-import { IonPage, IonContent, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/vue'
+import { IonPage, IonContent, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg } from '@ionic/vue'
 import fs from 'fs'
 import json from '../data/products.json'
 
 export default {
-  components: { IonPage, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle },
+  components: { IonPage, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg },
 	data() {
 		return {
 			products: json
@@ -13,6 +13,11 @@ export default {
   created() {
     //Esto corre cuando la pagina abre
     //Probablemente habria que meter alguna conexion con el backend aca para recibir los datos, porque ahora mismo se le esta dando el .json entero al cliente
+  },
+  methods: {
+    getImg(image) {
+      return new URL('../images/' + image, import.meta.url).href;
+    }
   }
 }
 
@@ -32,6 +37,7 @@ export default {
           <ion-card-content>
             {{ p.description }}
           </ion-card-content>
+          <ion-img :src=getImg(p.image)></ion-img>
         </ion-card>
       </div>
     </div>
