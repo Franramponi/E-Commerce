@@ -8,8 +8,14 @@ export default {
   components: { IonApp, IonHeader, IonRouterOutlet },
   setup() {
     const store = useLoginStore();
+    store.startup();
     const { isLogin, user } = storeToRefs(store);
     return { isLogin, user };
+  },
+  methods: {
+    logout() {
+      useLoginStore().logout();
+    }
   }
 }
 </script>
@@ -30,7 +36,7 @@ export default {
         <RouterLink class="nav-item" v-if="isLogin" to="/profile">Profile</RouterLink>
         <RouterLink class="nav-item" v-if="isLogin" to="/vendor">Vendor</RouterLink>
         <RouterLink class="nav-item username" v-if="isLogin" to="/profile">{{ user.name }}</RouterLink>
-        <RouterLink class="nav-item logout" v-if="isLogin" to="/logout">(Log Out)</RouterLink>
+        <span @click="logout" class="nav-item logout" v-if="isLogin" to="/logout">(Log Out)</span>
       </div>
     </ion-header>
     <ion-content class="main">

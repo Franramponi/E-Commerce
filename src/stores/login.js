@@ -4,17 +4,25 @@ export const useLoginStore = defineStore("login", {
   state: () => {
     return {
       isLogin: false,
-      user: { name: '', permLevel: 0 } };
+      user: { name: '', permLevel: 0, vendorID: -1 } };
   },
   actions: {
+    startup() {
+      const user = JSON.parse(localStorage.getItem("user"));
+      if (user != null) {
+        this.login(user);
+      }
+    },
     logout() {
       this.isLogin = false;
       //Vacío el usuario al cerrar sesión
       this.user = {}
+      localStorage.removeItem("user");
     },
     login(user) {
       this.isLogin = true;
       this.user = user;
+      localStorage.setItem("user", JSON.stringify(user));
     },
     hasPermission(requiredPerm){
       return this.user.permLevel >= requiredPerm;

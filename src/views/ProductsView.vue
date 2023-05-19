@@ -1,26 +1,42 @@
 <script>
-import { IonPage, IonContent, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg } from '@ionic/vue'
-import fs from 'fs'
-import json from '../data/products.json'
+import { IonPage, IonContent, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg, IonButton } from '@ionic/vue'
+//import json from '../data/products.json'
+import productService from '../services/productService.js'
+import { useCartStore } from '../stores/cart.js'
+import { storeToRefs } from 'pinia';
 
 export default {
-  components: { IonPage, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg },
+  components: { IonPage, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg, IonButton },
 	data() {
 		return {
-			products: json
+			//products: json
+      products: []
 		}
 	},
-  created() {
+  mounted() {
     //Esto corre cuando la pagina abre
-    //Probablemente habria que meter alguna conexion con el backend aca para recibir los datos, porque ahora mismo se le esta dando el .json entero al cliente
+    this.loadData();
   },
   methods: {
+    errorCatch(err) {
+      console.log(err);
+      alert(err);
+    },
+    loadData() {
+      productService.loadData((res) => { this.products = res.data; }, this.errorCatch);
+    },
+    addToCart(id) {
+      console.log('https://6466a4262ea3cae8dc1ba7e1.mockapi.io/products/' + id);
+      productService.getData(id, (res) => { console.log({...res.data}); useCartStore().addProduct({...res.data}); }, this.errorCatch);
+      
+    }
+    /*
     getImg(image) {
       return new URL('../images/' + image, import.meta.url).href;
     }
+    */
   }
 }
-
 </script>
 
 <template>
@@ -31,13 +47,15 @@ export default {
         <ion-card class="product-card" v-for="p in products" :key="p.id">
           <ion-card-header>
             <ion-card-title>{{ p.name }}</ion-card-title>
-            <ion-card-subtitle>${{ p.price.toFixed(2) }}</ion-card-subtitle>
+            <ion-card-subtitle>${{ p.price }}</ion-card-subtitle>
           </ion-card-header>
 
           <ion-card-content>
             {{ p.description }}
           </ion-card-content>
-          <ion-img :src=getImg(p.image)></ion-img>
+          <ion-img :src=p.image></ion-img>
+          <!-- <ion-img :src=getImg(p.image)></ion-img> -->
+          <ion-button @click="addToCart(p.id)">Add to Cart</ion-button>
         </ion-card>
       </div>
     </div>

@@ -4,14 +4,13 @@
 	--primary: #FFC300;
 	--secondary: #FFD60A;
 	--third: #003566;
-	--background: #001D3D;
+	--bg: #001D3D;
 	--dark: #000814;
-
 }
 
 * {
 	font-family: 'Roboto', sans-serif;
-	background: var(--third);
+	background: var(--bg);
 	color: var(--primary);
 }
 
@@ -78,7 +77,7 @@
 
 .product-card {
 	width: 30%;
-	height: 25rem;
+	height: 40rem;
 	margin: 1rem;
 	border: 1px solid var(--secondary);
 	border-radius: 6px;

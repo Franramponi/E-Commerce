@@ -1,6 +1,6 @@
 <script>
 import { IonPage, IonButton, IonInput } from '@ionic/vue'
-import { useLoginStore } from '../stores/login'
+import { useLoginStore } from '../stores/login.js'
 import { storeToRefs } from 'pinia';
 
 export default {
@@ -20,7 +20,11 @@ export default {
     tryLogin() {
       if (this.isLogin == false) {
 				if (this.user.name == 'username' && this.user.pass == 'password') {
-					this.login({ name: this.user.name, permLevel: 1 });
+					this.login({ name: this.user.name, permLevel: 1, vendorID: -1 });
+					this.$router.push("/");
+				}
+				else if (this.user.name == 'admin' && this.user.pass == 'password') {
+					this.login({ name: this.user.name, permLevel: 10, vendorID: 0 });
 					this.$router.push("/");
 				}
 				else {
