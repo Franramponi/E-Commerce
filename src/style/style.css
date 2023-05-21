@@ -51,16 +51,16 @@
 .invisible-scroll {
 	overflow-y: scroll;
 }
-
+ 
 .invisible-scroll::-webkit-scrollbar {
 	display: none;
-}
+} 
 
-/* MAIN */
+/* MAIN 
 
 .main {
 
-}
+}*/
 
 .title{
 	text-align: center;
