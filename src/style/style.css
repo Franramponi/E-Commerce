@@ -54,7 +54,7 @@
  
 .invisible-scroll::-webkit-scrollbar {
 	display: none;
-} 
+}
 
 /* MAIN 
 
@@ -103,4 +103,12 @@
 
 .footer{
 	border-top: var(--primary) 1px solid;
+}
+
+/*HOME*/
+
+.div-icons {
+	text-align: center;
+	padding: 3rem 0px 3rem 0px;
+	border-top: 1px solid var(--primary);
 }
