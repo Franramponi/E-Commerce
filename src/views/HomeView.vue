@@ -14,7 +14,7 @@ export default {
       <h2 class="title">ME ENCANTAN LOS LIBROS Y LAS LAPTOPS</h2>
     </div>
 
-    <div class="row div-icons"  align="center">
+    <div class="row"  align="center" style="">
       <div class="col-xs-12 col-sm-4">
         <img src="src/images/icons/free_shipping.png" />
         ENVÍO GRATIS
@@ -55,6 +55,7 @@ export default {
     <span class="visually-hidden">Siguiente</span>
   </button>
  </div>
+
 </ion-page>
 </template>
 
