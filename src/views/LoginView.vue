@@ -45,10 +45,10 @@ export default {
   <ion-page>
     <div class="login-container">
 		<div class="login-form">
-      <h2>Login page</h2>
-      <ion-input v-model="user.name" label="Username:" placeholder="username"></ion-input>
-      <ion-input v-model="user.pass" label="Password:" type="password" placeholder="password"></ion-input>
-      <ion-button @click="tryLogin">Login</ion-button>
+      <h2 class="title">Login page</h2>
+      <ion-input class="login-form-input" v-model="user.name" label="Username:" placeholder="username"></ion-input>
+      <ion-input class="login-form-input" v-model="user.pass" label="Password:" type="password" placeholder="password"></ion-input>
+      <ion-button class="login-button" @click="tryLogin">Login</ion-button>
 	</div>
     </div>
   </ion-page>

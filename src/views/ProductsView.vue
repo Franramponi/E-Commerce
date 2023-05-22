@@ -46,15 +46,15 @@ export default {
       <div class="products-view">
         <ion-card class="product-card" v-for="p in products" :key="p.id">
           <ion-card-header>
-            <ion-card-title>{{ p.name }}</ion-card-title>
-            <ion-card-subtitle>${{ p.price }}</ion-card-subtitle>
+            <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
           </ion-card-header>
 
-          <ion-card-content>
+          <ion-card-content class="products-desc">
             {{ p.description }}
           </ion-card-content>
-          <ion-img :src=p.image></ion-img>
+          <ion-img class="products-img" :src=p.image></ion-img>
           <!-- <ion-img :src=getImg(p.image)></ion-img> -->
+          <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
           <ion-button @click="addToCart(p.id)">Add to Cart</ion-button>
         </ion-card>
       </div>
