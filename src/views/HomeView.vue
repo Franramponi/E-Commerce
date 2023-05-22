@@ -10,21 +10,17 @@ export default {
 
 <template>
   <ion-page>
-    <div>
-      <h2 class="title">ME ENCANTAN LOS LIBROS Y LAS LAPTOPS</h2>
-    </div>
-
     <div class="row div-icons"  align="center">
-      <div class="col-xs-12 col-sm-4">
-        <img src="src/images/icons/free_shipping.png" />
+      <div class="col-xs-12 col-sm-4 home-text">
+        <font-awesome-icon icon="fa-solid fa-truck" class="home-icon"/>
         ENVÍO GRATIS
       </div>
-      <div class="col-xs-12 col-sm-4">
-        <img src="src/images/icons/all_cards.png" />
+      <div class="col-xs-12 col-sm-4 home-text" >
+        <font-awesome-icon icon="fa-solid fa-credit-card" class="home-icon"/>
         TODAS LAS TARJETAS
       </div>
-      <div class="col-xs-12 col-sm-4">
-      <img src="src/images/icons/support.png" />
+      <div class="col-xs-12 col-sm-4 home-text">
+        <font-awesome-icon :icon="['fas', 'headset']" class="home-icon"/>
         SOPORTE 24HS
       </div>
     </div>

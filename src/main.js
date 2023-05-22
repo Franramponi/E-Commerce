@@ -22,6 +22,18 @@ import '@ionic/vue/css/text-transformation.css';
 import '@ionic/vue/css/flex-utils.css';
 import '@ionic/vue/css/display.css';
 
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+/* import specific icons */
+import { faCreditCard, faTruck, faHeadset, faMagnifyingGlass, faUser, faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons'
+
+/* add icons to the library */
+library.add(faCreditCard, faTruck, faHeadset, faMagnifyingGlass, faUser, faCartShopping, faHeart)
+
 
 
 const app = createApp(App)
@@ -29,5 +41,6 @@ app.use(createPinia())
 app.use(IonicVue)
 app.use(router)
 router.isReady().then(() => {
+    app.component('font-awesome-icon', FontAwesomeIcon)
     app.mount('#app');
 });
