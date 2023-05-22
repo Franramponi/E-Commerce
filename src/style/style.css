@@ -101,6 +101,10 @@
 	padding: 3rem 0 3rem 0;
 }
 
+.carousel-img{
+	height: 45rem;
+}
+
 /* PRODUCTS */
 .products-view {
 	display: flex;

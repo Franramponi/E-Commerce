@@ -33,13 +33,13 @@ export default {
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="src/images/carousel/oferta_encic_pokemon.png" class="d-block w-100" alt="...">
+      <img src="src/images/carousel/oferta_encic_pokemon.png" class="d-block w-100 carousel-img" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="src/images/carousel/oferta_gamer.png" class="d-block w-100" alt="...">
+      <img src="src/images/carousel/oferta_gamer.png" class="d-block w-100 carousel-img" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="src/images/carousel/oferta_hp.png" class="d-block w-100" alt="...">
+      <img src="src/images/carousel/oferta_hp.png" class="d-block w-100 carousel-img" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
