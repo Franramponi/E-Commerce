@@ -7,7 +7,7 @@ import { storeToRefs } from "pinia";
 export default {
   data(){
     return{
-       mostrarFooter : true
+       mostrarFooter : true 
     };
   },
   components: { IonApp, IonHeader, IonRouterOutlet },
@@ -62,7 +62,7 @@ export default {
     <ion-content class="main">
     <ion-router-outlet />
     </ion-content>
-    <ion-footer :class="{'hide-footer': !mostrarFooter}">
+    <ion-footer :class="{'hide-footer': !mostrarFooter}"> <!--Solucionar posicion footer-->
       <div class="footer">
 
         <div class="infoFooter">
@@ -90,11 +90,13 @@ export default {
 
         <div class="iconosF">
           <a href="/">
-            <img class="iconosFooter" src="/src/images/icons/facebook.png" alt="icono facebook"/></a>
+            <img class="iconosFooter" src="/src/images/icons/icon_facebook.png" alt="icono facebook"/></a>
           <a href="/">
-            <img class="iconosFooter" src="/src/images/icons/twitter.png" alt="icono twitter"/></a>
+            <img class="iconosFooter" src="/src/images/icons/icon_tweeter.png" alt="icono twitter"/></a>
           <a href="/">
-            <img class="iconosFooter" src="/src/images/icons/youtube.png" alt="icono youtube"/></a>
+            <img class="iconosFooter" src="/src/images/icons/icon_instagram.png" alt="icono instagram"/></a>
+          <a href="/">
+            <img class="iconosFooter" src="/src/images/icons/icon_youtube.png" alt="icono youtube"/></a>
         </div>
       </div>
 
