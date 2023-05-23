@@ -103,6 +103,40 @@
 
 .footer{
 	border-top: var(--primary) 1px solid;
+} 
+.infoFooter{
+	display: flex;
+	justify-content: center;
+    font-size: 1.2rem;
+	margin-bottom: 2em;
+}
+.infoT{
+ 	text-align: justify;
+	height: 13rem;
+	width: 18rem;
+	margin: 1rem 1rem 3rem 1rem;
+}
+.infoSt{
+	display: inline-block;
+	justify-content: center;
+	margin-left: 2rem;
+}
+.iconosF{
+	display: flex;
+	justify-content: center;
+} 
+.iconosFooter{
+	margin-right: 4em;
+	margin-bottom: 0.5em;
+	width: 2.5rem;
+	max-height: auto;
+}
+.derechos{
+	border-top: var(--primary) 1px solid;
+	text-align: center;
+}
+.hide-footer{
+	display: none;
 }
 
 /*HOME*/
