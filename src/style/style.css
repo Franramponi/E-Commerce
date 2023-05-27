@@ -7,6 +7,7 @@
 	--bg: #001D3D;
 	--dark: #000814;
 	--darkermain: #9b9547;
+	--ion-background-color: bg;
 }
 
 * {
@@ -15,6 +16,24 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+ion-content {
+  width: calc(100% + 15px);
+	&::part(scroll) {
+		padding-right: 15px;
+	}
+}
+
+.page-body {
+	min-height: 100%;
+	display: flex;
+	flex-direction:column;
+	justify-content:space-between;
+}
+
+body {
+	background-color:var(--bg);
 }
 
 /* HEADER */
@@ -172,6 +191,7 @@
 
 .footer{
 	border-top: var(--primary) 1px solid;
+	width: 100%;
 }
 
 .footer-text{
