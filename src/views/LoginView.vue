@@ -2,9 +2,10 @@
 import { IonPage, IonButton, IonInput } from '@ionic/vue'
 import { useLoginStore } from '../stores/login.js'
 import { storeToRefs } from 'pinia';
+import Footer from './Footer.vue'
 
 export default {
-  components: { IonPage, IonButton, IonInput },
+  components: { Footer, IonPage, IonButton, IonInput },
 	setup() {
 		const store = useLoginStore();
 		const { login } = store;
@@ -43,13 +44,18 @@ export default {
 
 <template>
   <ion-page>
-    <div class="login-container">
-		<div class="login-form">
-      <h2>Login page</h2>
-      <ion-input v-model="user.name" label="Username:" placeholder="username"></ion-input>
-      <ion-input v-model="user.pass" label="Password:" type="password" placeholder="password"></ion-input>
-      <ion-button @click="tryLogin">Login</ion-button>
-	</div>
-    </div>
+    <ion-content>
+      <div class="page-body">
+				<div class="login-container">
+					<div class="login-form">
+						<h2 class="title">Login page</h2>
+						<ion-input class="login-form-input" v-model="user.name" label="Username:" placeholder="username"></ion-input>
+						<ion-input class="login-form-input" v-model="user.pass" label="Password:" type="password" placeholder="password"></ion-input>
+						<ion-button class="login-button" @click="tryLogin">Login</ion-button>
+					</div>
+				</div>
+				<Footer/>
+			</div>
+    </ion-content>
   </ion-page>
 </template>

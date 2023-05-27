@@ -1,13 +1,20 @@
 <script>
 import {IonPage} from '@ionic/vue'
+import Footer from './Footer.vue'
+
 export default {
-  components: {IonPage}
+  components: { Footer, IonPage }
 }
 
 </script>
 
 <template>
   <ion-page>
-    <h2 class="title">Page not found</h2>
+    <ion-content>
+      <div class="page-body">
+        <h2 class="title">Page not found</h2>
+        <Footer/>
+      </div>
+    </ion-content>
   </ion-page>
 </template>

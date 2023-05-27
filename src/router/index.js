@@ -20,7 +20,6 @@ const router = createRouter({
       path: '/products',
       name: 'products',
       component: ProductsView,
-      meta: { RequireAuth: true, permLevel: 1 }
     },
     {
       path: '/login',
