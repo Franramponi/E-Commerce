@@ -29,11 +29,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faCreditCard, faTruck, faHeadset, faMagnifyingGlass, faUser, faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faCreditCard, faTruck, faHeadset, faMagnifyingGlass, faUser, faCartShopping, faHeart} from '@fortawesome/free-solid-svg-icons';
+import { faTwitter, faYoutube, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 /* add icons to the library */
-library.add(faCreditCard, faTruck, faHeadset, faMagnifyingGlass, faUser, faCartShopping, faHeart)
-
+library.add(faCreditCard, faTruck, faHeadset, faMagnifyingGlass, faUser, faCartShopping, faHeart, faTwitter, faYoutube, faInstagram, faFacebook);
 
 
 const app = createApp(App)

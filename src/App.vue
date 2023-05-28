@@ -53,9 +53,6 @@ export default {
     <ion-content class="main">
     <ion-router-outlet/>
     </ion-content>
-    <ion-footer class="footer">
-      <h2>Footer</h2>
-    </ion-footer>
   </ion-app>
 </template>
 
