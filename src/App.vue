@@ -1,23 +1,24 @@
 <script>
-import { RouterLink, RouterView } from 'vue-router';
-import { IonApp, IonHeader, IonRouterOutlet, IonText, IonSearchbar } from '@ionic/vue';
-import { useLoginStore } from './stores/login';
-import { storeToRefs } from 'pinia';
+import { RouterLink, RouterView } from "vue-router";
+import { IonApp, IonHeader, IonRouterOutlet, IonText, IonSearchbar } from "@ionic/vue";
+import { useLoginStore } from "./stores/login";
+import { storeToRefs } from "pinia";
 
 export default {
-  components: { IonApp, IonHeader, IonRouterOutlet, IonText, IonSearchbar },
+  components: { IonApp, IonHeader, IonRouterOutlet },
   setup() {
     const store = useLoginStore();
     store.startup();
     const { isLogin, user } = storeToRefs(store);
     return { isLogin, user };
+    
   },
   methods: {
     logout() {
       useLoginStore().logout();
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <template>
@@ -50,11 +51,13 @@ export default {
       </div>
     </ion-header>
     <ion-content class="main">
-      <ion-router-outlet/>
+    <ion-router-outlet/>
     </ion-content>
   </ion-app>
 </template>
 
 <style>
 @import './style/style.css';
+
+
 </style>
