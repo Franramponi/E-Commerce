@@ -7,6 +7,9 @@
 	--bg: #001D3D;
 	--dark: #000814;
 	--darkermain: #9b9547;
+	--ion-background-color: bg;
+	--f: #868483;
+
 }
 
 * {
@@ -15,6 +18,24 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+ion-content {
+  width: calc(100% + 15px);
+	&::part(scroll) {
+		padding-right: 15px;
+	}
+}
+
+.page-body {
+	min-height: 100%;
+	display: flex;
+	flex-direction:column;
+	justify-content:space-between;
+}
+
+body {
+	background-color:var(--bg);
 }
 
 /* HEADER */
@@ -203,9 +224,51 @@
 
 .footer{
 	border-top: var(--primary) 1px solid;
+	width: 100%;
+} 
+.footer-icon {
+  margin: 1.5rem;
+  color: var(--primary);
+  font-size: 1.7rem;
 }
-
-.footer-text{
+.infoFooter{
+	display: flex;
+	justify-content: center;
+    font-size: 1rem;
+	margin: 1rem 3rem 2rem 3rem;
+	/* arriba | derecha | abajo | izquierda */
+	padding: 1rem 3rem 1rem 3rem;
+	color: var(--primary);
+	
+}
+.infoT{
+ 	text-align: justify;
+	height: 13rem;
+	width: 18rem;
+}
+.infoCompra{
+	color: var(--primary);
+	text-align: left;
+	margin-left: 9rem;
+}
+.infoCompra a{
+	text-decoration: none;
 	color: var(--primary);
 }
 
+.iconosF{
+	display: flex;
+	justify-content: center;
+
+} 
+.iconosFooter{
+	margin-right: 4em;
+	margin-bottom: 0.5em;
+	max-height: auto;
+
+
+}
+.derechos{
+	border-top: var(--primary) 1px solid;
+	text-align: center;
+}

@@ -14,6 +14,11 @@ export default {
 		return { isLogin };
 	},
   data() {
+import Footer from './Footer.vue'
+
+export default {
+  components: { Footer, IonPage, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg, IonButton },
+	data() {
 		return {
 			//products: json
       products: []
@@ -52,13 +57,15 @@ export default {
 
 <template>
   <ion-page>
-    <h2 class="title">Products page</h2>
-    <div class="invisible-scroll">
-      <div class="products-view">
-        <ion-card class="product-card" v-for="p in products" :key="p.id">
-          <ion-card-header>
-            <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
-          </ion-card-header>
+    <ion-content>
+      <div class="page-body">
+        <h2 class="title">Products page</h2>
+        <div class="invisible-scroll">
+          <div class="products-view">
+            <ion-card class="product-card" v-for="p in products" :key="p.id">
+              <ion-card-header>
+                <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
+              </ion-card-header>
 
           <ion-card-content class="products-desc">
             {{ p.description }}
@@ -68,7 +75,18 @@ export default {
           <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
           <ion-button class="products-btn" @click="addToCart(p.id)">Add to Cart</ion-button>
         </ion-card>
+              <ion-card-content class="products-desc">
+                {{ p.description }}
+              </ion-card-content>
+              <ion-img class="products-img" :src=p.image></ion-img>
+              <!-- <ion-img :src=getImg(p.image)></ion-img> -->
+              <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
+              <ion-button @click="addToCart(p.id)">Add to Cart</ion-button>
+            </ion-card>
+          </div>
+        </div>
+        <Footer/>
       </div>
-    </div>
+    </ion-content>
   </ion-page>
 </template>
