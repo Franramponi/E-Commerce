@@ -4,7 +4,7 @@ export const useLoginStore = defineStore("login", {
   state: () => {
     return {
       isLogin: false,
-      user: { name: '', permLevel: 0, vendorID: -1 } };
+      user: { name: '', email: '', creditCard:'', address:'', document:'', phoneNumber:'', permLevel: 0, vendorID: -1 } };
   },
   actions: {
     startup() {

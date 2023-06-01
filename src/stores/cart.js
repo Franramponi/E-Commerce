@@ -16,6 +16,10 @@ export const useCartStore = defineStore("cart", {
 		addProduct(product) {
 			this.products.push(product);
       localStorage.setItem("products", JSON.stringify(this.products));
-		}
+		},
+    removeProduct(product){
+      this.products.splice(this.products.indexOf(product), 1);
+
+    }
   }
 });

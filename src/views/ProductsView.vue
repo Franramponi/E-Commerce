@@ -4,10 +4,16 @@ import { IonPage, IonContent, IonCard, IonCardContent, IonCardHeader, IonCardSub
 import productService from '../services/productService.js'
 import { useCartStore } from '../stores/cart.js'
 import { storeToRefs } from 'pinia';
+import { useLoginStore } from '../stores/login.js'
 
 export default {
   components: { IonPage, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg, IonButton },
-	data() {
+  setup() {
+		const store = useLoginStore();
+		const { isLogin } = storeToRefs(store);
+		return { isLogin };
+	},
+  data() {
 		return {
 			//products: json
       products: []
@@ -26,9 +32,14 @@ export default {
       productService.loadData((res) => { this.products = res.data; }, this.errorCatch);
     },
     addToCart(id) {
-      console.log('https://6466a4262ea3cae8dc1ba7e1.mockapi.io/products/' + id);
-      productService.getData(id, (res) => { console.log({...res.data}); useCartStore().addProduct({...res.data}); }, this.errorCatch);
+      if(this.isLogin){
+        console.log('https://6466a4262ea3cae8dc1ba7e1.mockapi.io/products/' + id);
+        productService.getData(id, (res) => { console.log({...res.data}); useCartStore().addProduct({...res.data}); }, this.errorCatch);
       
+      } else {
+        this.$router.push("/login");
+      }
+
     }
     /*
     getImg(image) {
@@ -55,7 +66,7 @@ export default {
           <ion-img class="products-img" :src=p.image></ion-img>
           <!-- <ion-img :src=getImg(p.image)></ion-img> -->
           <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
-          <ion-button @click="addToCart(p.id)">Add to Cart</ion-button>
+          <ion-button class="products-btn" @click="addToCart(p.id)">Add to Cart</ion-button>
         </ion-card>
       </div>
     </div>

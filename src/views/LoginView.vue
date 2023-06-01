@@ -20,11 +20,11 @@ export default {
     tryLogin() {
       if (this.isLogin == false) {
 				if (this.user.name == 'username' && this.user.pass == 'password') {
-					this.login({ name: this.user.name, permLevel: 1, vendorID: -1 });
+					this.login({ name: this.user.name, email: 'user@gmail.com', creditCard:'4545858565652525', address:'5th Avenue', document:'424235351', phoneNumber:'11505062253', permLevel: 1, vendorID: -1 });
 					this.$router.push("/");
 				}
 				else if (this.user.name == 'admin' && this.user.pass == 'password') {
-					this.login({ name: this.user.name, permLevel: 10, vendorID: 0 });
+					this.login({ name: this.user.name,email: 'admin@gmail.com', creditCard: '13674678136', address: '2381 Admin Dr.', document: '26392101', phoneNumber: '13894712983', permLevel: 10, vendorID: 0 });
 					this.$router.push("/");
 				}
 				else {
