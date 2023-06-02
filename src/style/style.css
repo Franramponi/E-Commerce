@@ -345,11 +345,18 @@ body {
   }
   .compromis {
 	float: left;
-	max-width: 47%;
+	max-width: 50%;
 	min-height: 50%;
 	overflow: hidden;
 	color: var(--primary);
-	margin: 1.5%;
+	margin: 2rem;
+  }
+  .compromis h3{
+	text-align: center;
+
+  }
+  .mision h3 {
+	text-align: center;
   }
   .mision {
 	float: right;
@@ -364,10 +371,9 @@ body {
 	flex-flow: nowrap;
 	color: var(--primary);
   }
-  div h3 {
+  .equip h3 {
 	text-align: center;
 	color: var(--primary);
-	text-decoration: double;
   }
   .personal {
 	max-width: 500%;
