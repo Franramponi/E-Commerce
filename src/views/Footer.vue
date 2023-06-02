@@ -4,8 +4,8 @@
 
 <template>
   <div class="footer">
-    <div class="infoFooter">
-      <div class="col-xs-12 col-sm-4 infoT">
+    <div class="info-footer">
+      <div class="col-xs-12 col-sm-4 info-store">
         <h3>TechBookStore</h3>
         <p>
           Nuestro catálogo incluye laptops de calidad de diversas marcas y una
@@ -14,14 +14,14 @@
           lectura.
         </p>
       </div>
-      <div class="col-xs-12 col-sm-4 infoCompra">
+      <div class="col-xs-12 col-sm-4 info-store info-shop">
         <h3>COMPRAS</h3>
-        <RouterLink to="/cart">Tu carrito</RouterLink> <br />
-        <a href="/">Lista favoritos</a> <br />
+        <RouterLink to="/cart"  class="router-link">Tu carrito</RouterLink> <br />
+        <a href="/"  class="router-link">Lista favoritos</a> <br />
       </div>
 
-      <div class="col-xs-12 col-sm-4 infoT">
-        <h4>INFO STORE</h4>
+      <div class="col-xs-12 col-sm-4 info-store">
+        <h3>INFO STORE</h3>
         <p>
           Calle Ficticia 123, Buenos Aires, CABA, Argentina <br>
           +54 11 8376 6284 <br>
@@ -30,30 +30,18 @@
       </div>
     </div>
 
-    <div class="iconosF">
+    <div class="iconos-footer">
       <a href="/">
-        <font-awesome-icon
-          icon="fa-brands fa-facebook"
-          class="home-icon footer-icon"
-      /></a>
-
+        <font-awesome-icon icon="fa-brands fa-facebook" class="home-icon footer-icon"/>
+      </a>
       <a href="/">
-        <font-awesome-icon
-          icon="fa-brands fa-twitter"
-          class="home-icon footer-icon"
-      /></a>
-
+        <font-awesome-icon icon="fa-brands fa-twitter" class="home-icon footer-icon"/>
+      </a>
       <a href="/">
-        <font-awesome-icon
-          icon="fa-brands fa-instagram"
-          class="home-icon footer-icon"
-      /></a>
-
+        <font-awesome-icon icon="fa-brands fa-instagram" class="home-icon footer-icon"/>
+      </a>
       <a href="/">
-        <font-awesome-icon
-          icon="fa-brands fa-youtube"
-          class="home-icon footer-icon"
-        />
+        <font-awesome-icon icon="fa-brands fa-youtube" class="home-icon footer-icon"/>
       </a>
     </div>
   </div>
