@@ -222,13 +222,32 @@ body {
 
 /* Profile */
 
-.profile-input {
-	color: var(--dark);	
+.profile-items{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
 }
-.profile-input:disabled{
-	background-color: lightgray;
-	color: var(--dark);
-	opacity: 1;
+
+.profile-item{
+	display: flex;
+	flex-direction: row;
+	color: var(--primary);
+	border-bottom: 1px solid var(--third);
+	align-items: center;
+	width: 45%;
+}
+
+.profile-text{
+	text-align: left;
+	margin-top: 2%;
+	width: 25%;
+}
+
+.profile-input {
+	color: var(--primary);
+	text-align: center;
 }
 
 /* FOOTER */
