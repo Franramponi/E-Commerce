@@ -46,8 +46,8 @@ export default {
         <RouterLink class="nav-item" to="/">Home</RouterLink>
         <RouterLink class="nav-item" to="/products">Products</RouterLink>
         <ion-text class="nav-item">Nuevos Ingresos</ion-text>
-        <ion-text class="nav-item">Sobre Nosotros</ion-text>
-        <ion-text class="nav-item">Contacto</ion-text>
+        <RouterLink class="nav-item" to="/nosotros">Sobre Nosotros</RouterLink>
+        <RouterLink class="nav-item" to="/contacto">Contacto</RouterLink>
       </div>
     </ion-header>
     <ion-content class="main">
