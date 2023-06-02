@@ -32,8 +32,8 @@ export default {
           </RouterLink>
         </div>
         <div class="navbar-log">          
-          <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="header-icon" />
-          <font-awesome-icon icon="fa-solid fa-heart" v-if="isLogin" class="header-icon" />
+          <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="header-icon"/>
+          <font-awesome-icon icon="fa-solid fa-heart" v-if="isLogin" class="header-icon"/>
           <RouterLink class="nav-item" v-if="!isLogin" to="/login">Log In</RouterLink>
           <RouterLink class="nav-item" v-if="isLogin" to="/cart"><font-awesome-icon icon="fa-solid fa-cart-shopping" class="header-icon" /></RouterLink>
           <RouterLink class="nav-item" v-if="isLogin" to="/profile"><font-awesome-icon icon="fa-solid fa-user" class="header-icon" /></RouterLink>
