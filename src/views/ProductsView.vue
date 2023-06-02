@@ -5,19 +5,15 @@ import productService from '../services/productService.js'
 import { useCartStore } from '../stores/cart.js'
 import { storeToRefs } from 'pinia';
 import { useLoginStore } from '../stores/login.js'
+import Footer from './Footer.vue'
 
 export default {
-  components: { IonPage, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg, IonButton },
+  components: { Footer, IonPage, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg, IonButton },
   setup() {
 		const store = useLoginStore();
 		const { isLogin } = storeToRefs(store);
 		return { isLogin };
 	},
-  data() {
-import Footer from './Footer.vue'
-
-export default {
-  components: { Footer, IonPage, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg, IonButton },
 	data() {
 		return {
 			//products: json
@@ -67,24 +63,16 @@ export default {
                 <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
               </ion-card-header>
 
-          <ion-card-content class="products-desc">
-            {{ p.description }}
-          </ion-card-content>
-          <ion-img class="products-img" :src=p.image></ion-img>
-          <!-- <ion-img :src=getImg(p.image)></ion-img> -->
-          <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
-          <ion-button class="products-btn" @click="addToCart(p.id)">Add to Cart</ion-button>
-        </ion-card>
-              <ion-card-content class="products-desc">
-                {{ p.description }}
-              </ion-card-content>
+              <ion-card-content class="products-desc">{{ p.description }}</ion-card-content>
               <ion-img class="products-img" :src=p.image></ion-img>
               <!-- <ion-img :src=getImg(p.image)></ion-img> -->
+              
               <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
-              <ion-button @click="addToCart(p.id)">Add to Cart</ion-button>
+              <ion-button class="products-btn" @click="addToCart(p.id)">Add to Cart</ion-button>
             </ion-card>
           </div>
         </div>
+        
         <Footer/>
       </div>
     </ion-content>

@@ -54,6 +54,7 @@ export default {
 						<ion-button class="login-button" @click="tryLogin">Login</ion-button>
 					</div>
 				</div>
+				
 				<Footer/>
 			</div>
     </ion-content>
