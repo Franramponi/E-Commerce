@@ -13,6 +13,7 @@ export default {
     <ion-content>
       <div class="page-body">
         <h2 class="title">Page not found</h2>
+        
         <Footer/>
       </div>
     </ion-content>

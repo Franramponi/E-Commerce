@@ -45,10 +45,10 @@
         <font-awesome-icon icon="fa-brands fa-youtube" class="home-icon footer-icon"/>
       </a>
     </div>
-  </div>
 
-  <div class="derechos">
-    <h2>TechBookStore © Todos los derechos reservados</h2>
+    <p class="derechos">
+      TechBookStore © Todos los derechos reservados
+    </p>
   </div>
 </template>
 

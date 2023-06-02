@@ -13,10 +13,10 @@ export default {
     return { user };
   },
   data() {
-		return {
+    return {
       products: []
-		}
-	},
+    }
+  },
   mounted() {
     this.loadData();
   },
@@ -27,11 +27,11 @@ export default {
     },
     loadData() {
       productService.loadData(
-        (res) => { 
+        (res) => {
           this.products = res.data.filter(
             (e) => e.vendor == this.user.vendorID
-          ); 
-        }, 
+          );
+        },
         this.errorCatch);
     },
     removeEntry(id) {
@@ -39,7 +39,7 @@ export default {
     },
     modifyEntry(id) {
       const entry = this.products.filter((e) => e.id == id)[0];
-      productService.modifyEntry(id, {...entry}, this.loadData, this.errorCatch);
+      productService.modifyEntry(id, { ...entry }, this.loadData, this.errorCatch);
     }
   }
 }
@@ -55,20 +55,21 @@ export default {
           <div class="products-view">
             <ion-card class="product-card" v-for="p in products" :key="p.id">
               <ion-card-header>
-                <ion-card-title>{{ p.name }}</ion-card-title>
-                <ion-card-subtitle>${{ p.price }}</ion-card-subtitle>
+                <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
+                <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
               </ion-card-header>
 
-              <ion-card-content>
-                {{ p.description }}
-              </ion-card-content>
-              <ion-img :src="p.image"></ion-img>
-              <ion-button @click="removeEntry(p.id)">Delete</ion-button>
-              <ion-input type="number" v-model="p.stock"></ion-input>
-              <ion-button @click="modifyEntry(p.id)">Update Stock</ion-button>
+              <ion-card-content class="products-desc">{{ p.description }}</ion-card-content>
+              <ion-img class="products-img" :src="p.image"></ion-img>
+              <div class="vendor-btn-container">
+                  <ion-button @click="removeEntry(p.id)">Delete</ion-button>
+                  <ion-input class="vendor-input" type="number" v-model="p.stock"></ion-input>
+                  <ion-button @click="modifyEntry(p.id)">Update Stock</ion-button>
+              </div>
             </ion-card>
           </div>
         </div>
+        
         <Footer/>
       </div>
     </ion-content>

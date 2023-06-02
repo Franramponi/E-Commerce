@@ -1,17 +1,16 @@
 <script>
 import { RouterLink, RouterView } from "vue-router";
-import { IonApp, IonHeader, IonRouterOutlet, IonText, IonSearchbar } from "@ionic/vue";
+import { IonContent, IonApp, IonHeader, IonRouterOutlet, IonText, IonSearchbar } from "@ionic/vue";
 import { useLoginStore } from "./stores/login";
 import { storeToRefs } from "pinia";
 
 export default {
-  components: { IonApp, IonHeader, IonRouterOutlet },
+  components: { IonContent, IonApp, IonHeader, IonRouterOutlet, IonText, IonSearchbar },
   setup() {
     const store = useLoginStore();
     store.startup();
     const { isLogin, user } = storeToRefs(store);
     return { isLogin, user };
-    
   },
   methods: {
     logout() {
