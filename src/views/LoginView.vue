@@ -1,11 +1,11 @@
 <script>
-import { IonPage, IonButton, IonInput } from '@ionic/vue'
+import { IonContent, IonPage, IonButton, IonInput } from '@ionic/vue'
 import { useLoginStore } from '../stores/login.js'
 import { storeToRefs } from 'pinia';
 import Footer from './Footer.vue'
 
 export default {
-  components: { Footer, IonPage, IonButton, IonInput },
+  components: { IonContent, Footer, IonPage, IonButton, IonInput },
 	setup() {
 		const store = useLoginStore();
 		const { login } = store;

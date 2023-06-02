@@ -32,6 +32,8 @@ export const useLoginStore = defineStore("login", {
       // Si quiero que un admin tenga acceso a todo, a tal user le paso que es admin y aca directamente le paso true.
     },
     modifyUser(userProfile){
+      this.user.email = userProfile.email;
+      this.user.address = userProfile.address;
       this.user.phoneNumber = userProfile.phoneNumber;
       this.user.creditCard = userProfile.creditCard;
       localStorage.setItem("user", JSON.stringify(this.user));

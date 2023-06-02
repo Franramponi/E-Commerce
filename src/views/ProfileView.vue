@@ -15,13 +15,17 @@ export default {
   },
   data() {
 		return {
-			userProfile: {}
+			userProfile: {},
+      editing: false
 		}
 	},
   methods: {
-    modifyProfile(){
+    enableEditing() {
+      this.editing = true;
+    },
+    modifyProfile() {
       this.modifyUser({...this.userProfile})
-      console.log(this.userProfile)
+      this.editing = false;
     }
   }
 }
@@ -32,12 +36,12 @@ export default {
   <ion-page>
     <ion-content>
       <div class="page-body">
-        <h2 class="title">Profile</h2>
+        <h2 class="title">Profile {{ editing }}</h2>
         <div>
           <div class="profile-items">
             <div class="profile-item">
               <p class="profile-text">Username:</p>
-              <ion-input class="profile-input" v-model="userProfile.name" :value="user.name" disabled></ion-input>
+              <ion-input class="profile-input" :value="user.name" disabled></ion-input>
             </div>
           </div>
         </div>
@@ -45,7 +49,7 @@ export default {
           <div class="profile-items">
             <div class="profile-item">
               <p class="profile-text">Email:</p>
-              <ion-input class="profile-input" v-model="userProfile.email" :value="user.email" disabled></ion-input>
+              <ion-input class="profile-input" :value="user.email" v-model="userProfile.email" :disabled="!editing"></ion-input>
             </div>
           </div>
         </div>
@@ -53,7 +57,7 @@ export default {
           <div class="profile-items">
             <div class="profile-item">
               <p class="profile-text">Document:</p>
-              <ion-input class="profile-input" v-model="userProfile.document" :value="user.document" disabled></ion-input>
+              <ion-input class="profile-input" :value="user.document" disabled></ion-input>
             </div>
           </div>
         </div>
@@ -61,7 +65,7 @@ export default {
           <div class="profile-items">
             <div class="profile-item">
               <p class="profile-text">Address</p>
-              <ion-input class="profile-input" v-model="userProfile.address" :value="user.address" disabled></ion-input>
+              <ion-input class="profile-input" :value="user.address" v-model="userProfile.address" :disabled="!editing"></ion-input>
             </div>
           </div>
         </div>
@@ -69,7 +73,7 @@ export default {
           <div class="profile-items">
             <div class="profile-item">
               <p class="profile-text">Phone number:</p>
-              <ion-input class="profile-input" v-model="userProfile.phoneNumber" :value="user.phoneNumber"></ion-input>
+              <ion-input class="profile-input" :value="user.phoneNumber" v-model="userProfile.phoneNumber" :disabled="!editing"></ion-input>
             </div>
           </div>
         </div>
@@ -77,11 +81,12 @@ export default {
           <div class="profile-items">
             <div class="profile-item">
               <p class="profile-text">Credit Card:</p>
-              <ion-input class="profile-input" v-bind="userProfile.creditCard" :placeholder="user.creditCard"></ion-input>
+              <ion-input class="profile-input" :value="user.creditCard" v-model="userProfile.creditCard" :disabled="!editing"></ion-input>
             </div>
           </div>
         </div>
-        <ion-button @click="modifyProfile()">Update Profile</ion-button>
+        <ion-button v-if="!editing" @click="enableEditing()">Edit Profile</ion-button>
+        <ion-button v-if="editing" @click="modifyProfile()">Save</ion-button>
         <Footer />
       </div>
     </ion-content>

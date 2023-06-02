@@ -35,7 +35,7 @@ export default {
     addToCart(id) {
       if(this.isLogin){
         console.log('https://6466a4262ea3cae8dc1ba7e1.mockapi.io/products/' + id);
-        productService.getData(id, (res) => { console.log({...res.data}); useCartStore().addProduct({...res.data}); }, this.errorCatch);
+        productService.getData(id, (res) => { useCartStore().addProduct({...res.data}); }, this.errorCatch);
       
       } else {
         this.$router.push("/login");
