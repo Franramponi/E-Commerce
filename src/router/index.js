@@ -5,6 +5,8 @@ import LoginView from '../views/LoginView.vue'
 import CartView from '../views/CartView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import VendorView from '../views/VendorView.vue'
+import NosotrosView from '../views/NosotrosView.vue'
+import ContactoView from '../views/ContactoView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
 import { useLoginStore } from '../stores/login'
 
@@ -43,6 +45,16 @@ const router = createRouter({
       name: 'vendor',
       component: VendorView,
       meta: { RequireAuth: true, permLevel: 2 }
+    },
+    {
+      path: '/nosotros',
+      name: 'nosotros',
+      component: NosotrosView
+    },
+    {
+    path: '/contacto',
+    name: 'contacto',
+    component: ContactoView
     },
     {
       path:'/:pathMatch(.*)*',

@@ -317,3 +317,61 @@ body {
 	font-size: 1rem;
 	margin-bottom: 0;
 }
+  
+  /* NOSOTROS */
+  .historia {
+	display: flex;
+	flex-flow: nowrap;
+  }
+  .historia img {
+	float: right;
+	max-width: 35%;
+	max-height: 35%;
+	margin-left: 2rem;
+  }
+  .story2 {
+	max-width: 50%;
+	min-height: auto;
+	margin: 2rem;
+	color: var(--primary);
+	text-align: left;
+  }
+  .story2 h3 {
+	text-align: center;
+  }
+  .empresa {
+	display: flex;
+	flex-flow: nowrap;
+  }
+  .compromis {
+	float: left;
+	max-width: 47%;
+	min-height: 50%;
+	overflow: hidden;
+	color: var(--primary);
+	margin: 1.5%;
+  }
+  .mision {
+	float: right;
+	max-width: 70%;
+	min-height: 50%;
+	overflow: hidden;
+	margin: 2rem;
+	color: var(--primary);
+  }
+  .equipo {
+	display: flex;
+	flex-flow: nowrap;
+	color: var(--primary);
+  }
+  div h3 {
+	text-align: center;
+	color: var(--primary);
+	text-decoration: double;
+  }
+  .personal {
+	max-width: 500%;
+	max-height: 20%;
+	text-align: center;
+	margin: 2rem 2rem 2rem 2rem;
+  }
