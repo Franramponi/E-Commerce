@@ -1,6 +1,11 @@
+import { Router } from "express";
+const productRoutes = Router();
+
 import ProductController from "../../Controllers/productController.js";
 
 const productController = new ProductController()
 
-app.get('/products', productController.getProducts);
-app.post('/products', productController.createProduct);
+productRoutes.get('/products', productController.getProducts);
+productRoutes.post('/products', productController.createProduct);
+
+export default productRoutes

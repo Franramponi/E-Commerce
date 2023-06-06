@@ -1,7 +1,4 @@
 import {DataTypes} from "sequelize";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 const Product = sequelize.define('Product', {
   id: {
