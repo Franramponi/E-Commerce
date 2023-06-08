@@ -1,4 +1,5 @@
-import {DataTypes} from "sequelize";
+import { DataTypes } from "sequelize";
+import sequelize from '../dbConnection/connection.js'
 
 const Product = sequelize.define('Product', {
   id: {
@@ -18,6 +19,17 @@ const Product = sequelize.define('Product', {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  image: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  price:  {
+    type: DataTypes.DECIMAL(9,2),
+    allowNull: false
+  }
+},
+{
+  timestamps: false
 });
 
 export default Product

@@ -19,7 +19,10 @@ export default {
       alert(err);
     },
     removeFromCart(id) {
-        console.log('https://6466a4262ea3cae8dc1ba7e1.mockapi.io/products/' + id);
+        //Nuestra DB:
+        //productService.getData(id, (res) => { useCartStore().removeProduct({...res.data.product}); }, this.errorCatch);
+        
+        //mockapi:
         productService.getData(id, (res) => { useCartStore().removeProduct({...res.data}); }, this.errorCatch);
     }
   }

@@ -2,7 +2,6 @@ import express from 'express'
 import router from './routes/router.js'
 import connection from './dbConnection/connection.js'
 import 'dotenv/config.js'
-//import ??? from './Models/models.js'
 import cors from "cors"
 
 const port = process.env.SERVER_PORT;

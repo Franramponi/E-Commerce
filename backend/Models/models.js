@@ -1,7 +1,7 @@
 import User from "./User.js";
 import Product from "./Product.js";
 
-// Asociación entre User y Product (1:N)
+// Asociación entre User y Product (1:N) (Vendedores)
 User.hasMany(Product, { 
     foreignKey: 'userId' 
 });

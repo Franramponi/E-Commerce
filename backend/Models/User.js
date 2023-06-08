@@ -1,4 +1,5 @@
-import {DataTypes} from "sequelize";
+import { DataTypes } from "sequelize";
+import sequelize from '../dbConnection/connection.js'
 
 const User = sequelize.define('User', {
   id: {
@@ -18,6 +19,9 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+},
+{
+  timestamps: false
 });
 
 export default User
