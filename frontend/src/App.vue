@@ -43,7 +43,7 @@ export default {
       </div>
       <div class="navbar-default">
         <RouterLink class="nav-item" to="/">Home</RouterLink>
-        <RouterLink class="nav-item" to="/products">Products</RouterLink>
+        <RouterLink class="nav-item" to="/products">Productos</RouterLink>
         <ion-text class="nav-item">Nuevos Ingresos</ion-text>
         <RouterLink class="nav-item" to="/nosotros">Sobre Nosotros</RouterLink>
         <RouterLink class="nav-item" to="/contacto">Contacto</RouterLink>
