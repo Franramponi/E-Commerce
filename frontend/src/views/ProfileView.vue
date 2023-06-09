@@ -15,7 +15,7 @@ export default {
   },
   data() {
 		return {
-			userProfile: {},
+			userProfile: this.user,
       editing: false
 		}
 	},

@@ -56,7 +56,7 @@ export default {
           </div>
         </div>
 
-        <div>
+        <div class="equip">
           <h3>Nuestro equipo</h3>
           <div class="equipo">
             <div class="personal">
