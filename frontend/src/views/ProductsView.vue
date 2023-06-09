@@ -65,13 +65,15 @@ export default {
         <h2 class="title">Products page</h2>
         <div class="invisible-scroll">
           <div class="products-view">
-            <ion-card class="product-card" v-for="p in products" :key="p.id">
-              <ion-card-header>
+            <ion-card class="product-container" v-for="p in products" :key="p.id">
+              <!--  <ion-card-header>
                 <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
-              </ion-card-header>
-
-              <ion-card-content class="products-desc">{{ p.description }}</ion-card-content>
-              <ion-img class="products-img" :src=p.image></ion-img>
+              </ion-card-header>-->
+              <ion-img class="products-img" :src = p.image></ion-img>
+              
+              <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
+              <ion-card-content class="products-description">{{ p.description }}</ion-card-content>
+             
               <!-- <ion-img :src=getImg(p.image)></ion-img> -->
               
               <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
