@@ -30,10 +30,11 @@ export default {
       alert(err);
     },
     loadData() {
-      productService.loadData((res) => { this.products = res.data.products; 
-        console.log(res.data.products); 
-      }, this.errorCatch);
-      
+      //Nuestra DB:
+      //productService.loadData((res) => { this.products = res.data.products; }, this.errorCatch);
+
+      //mockapi:
+      productService.loadData((res) => { this.products = res.data; }, this.errorCatch);
     },
     addToCart(id) {
       if(this.isLogin){
