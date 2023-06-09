@@ -16,7 +16,9 @@
       </div>
       <div class="col-xs-12 col-sm-4 info-store info-shop">
         <h3>COMPRAS</h3>
-        <RouterLink to="/cart"  class="router-link">Tu carrito</RouterLink> <br />
+        <RouterLink to="/cart" class="router-link">Tu carrito</RouterLink> <br />
+        <RouterLink to="/profile" class="router-link">Tu perfil</RouterLink> <br />
+
 <!--         <RouterLink to="/profile">Tu perfil</RouterLink> <br />
  -->        <a href="/"  class="router-link">Lista favoritos</a> <br />
       </div>
