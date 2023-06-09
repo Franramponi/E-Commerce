@@ -24,8 +24,8 @@ export default {
             ></iframe>
           </div>
           <section class="form-contacto">
-            <h2 class="x">Contacto</h2>
-            <div>
+            <h2>Contacto</h2>
+            <div class="form">
               <form action="/enviar" method="post">
                 <label for="nombre">Nombre</label>
                 <input type="text" id="nombre" />
@@ -50,67 +50,3 @@ export default {
   </ion-page>
 </template>
 
-<style>
-:root {
-	--primary: #FFC300;
-}
-.contacto {
-  display: flex;
-  flex-flow: nowrap;
-  max-width: 100%;
-  max-height: 70%;
-  overflow: hidden;
-}
-.contacto h2{
-  text-align: center;
-  color:var(--primary);
-}
-.map{
-  padding: 1rem;
-  border-radius: 0 0 1rem 1rem;
-}
-.form-contacto{
-  width: 100%;
-}
-form{
-  display: flex;
-  flex-direction: column;
-  /* arriba | derecha | abajo | izquierda */
-  padding: 0 1rem 0 1rem;
-}
-form label {
-    padding: 1rem 0 1rem;
-    color: var(--primary);
-
-  }
-form input {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  padding: 0.5em;
-  width: 100%;
-  border: 2px white solid;
-  color: white;
-  }
-form textarea {
-    width: 100%;
-    min-height: 8rem;
-    max-height: 8rem;
-    color: white;
-    border: 2px white solid;
-
-  }
-form button {
-    border-radius: 0 0 1rem 1rem;
-    background: #000000;
-    color: white;
-    cursor: pointer;
-    width: 100%;
-    height: 4rem;
-  }
-form button:hover {
-    color: grey;
-    box-shadow: 0px 0 10px black;
-    transition: 0.1s;
-  }
-</style>
