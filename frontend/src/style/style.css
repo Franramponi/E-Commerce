@@ -6,10 +6,10 @@
 	--third: #003566;
 	--bg: #001D3D;
 	--dark: #000814;
+	--light: #0053a0;
 	--darkermain: #9b9547;
-	--ion-background-color: bg;
+	--ion-background-color: var(--bg);
 	--f: #868483;
-
 }
 
 * {
@@ -113,7 +113,7 @@ body {
 	display: none;
 }
 
-/* MAIN  */
+/* MAIN / HOME  */
 
 .home-text{
 	color: var(--secondary);
@@ -147,7 +147,50 @@ body {
 	height: 35rem;
 }
 
+.home-container{
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	width: 80%;
+	margin-block: 2rem;
+	color: var(--f);
+	font-size: 18px;
+}
+
+.home-cards{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.card-item{
+	color: #fff;
+	font-weight: 700;
+	background-color: var(--third);
+	padding: 1.5rem;
+	width: 10rem;
+	height: auto;
+	border-radius: 8px;
+	margin-bottom: 2rem;
+	text-decoration: none;
+}
+
+.card-item:hover{
+	background-color: #bdd7ff;
+	color: var(--light);
+	transition-duration: 0.5s;
+}
+
+.card-item > p {
+	background: none;
+	text-align: center;
+	margin: 0;
+}
+
+
 /* PRODUCTS */
+
 .products-view {
 	display: flex;
 	flex-direction: row;
@@ -171,12 +214,23 @@ body {
 
 .products-desc{
 	color: var(--darkermain);
-	min-height: 3.5rem;
+	height: 3.5rem;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
+.products-desc:hover{
+    overflow: visible; 
+    white-space: normal;
+    height:auto;  /* just added this line */
+}
+
+
 .products-img{
-	height: auto;
-	width: 100%;
+	max-height: 26rem;
+	width: auto;
+	overflow: hidden;
 }
 
 .products-price{

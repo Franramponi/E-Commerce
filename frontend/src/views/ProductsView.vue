@@ -31,18 +31,18 @@ export default {
     },
     loadData() {
       //Nuestra DB:
-      //productService.loadData((res) => { this.products = res.data.products; }, this.errorCatch);
+      productService.loadData((res) => { this.products = res.data.products; }, this.errorCatch);
 
       //mockapi:
-      productService.loadData((res) => { this.products = res.data; }, this.errorCatch);
+      //productService.loadData((res) => { this.products = res.data; }, this.errorCatch);
     },
     addToCart(id) {
       if(this.isLogin){
         //Nuestra DB:
-        //productService.getData(id, (res) => { console.log(res.data); useCartStore().addProduct({...res.data.product}); }, this.errorCatch);
+        productService.getData(id, (res) => { console.log(res.data); useCartStore().addProduct({...res.data.product}); }, this.errorCatch);
         
         //mockapi:
-        productService.getData(id, (res) => { console.log(res.data); useCartStore().addProduct({...res.data}); }, this.errorCatch);
+        //productService.getData(id, (res) => { console.log(res.data); useCartStore().addProduct({...res.data}); }, this.errorCatch);
       
       } else {
         this.$router.push("/login");
