@@ -70,10 +70,10 @@ export default {
       console.log(this.filters);
       if(this.isLogin){
         //Nuestra DB:
-        //productService.getData(id, (res) => { console.log(res.data); useCartStore().addProduct({...res.data.product}); }, this.errorCatch);
+        productService.getData(id, (res) => { console.log(res.data); useCartStore().addProduct({...res.data.product}); }, this.errorCatch);
         
         //mockapi:
-        productService.getData(id, (res) => { console.log(res.data); useCartStore().addProduct({...res.data}); }, this.errorCatch);
+        //productService.getData(id, (res) => { console.log(res.data); useCartStore().addProduct({...res.data}); }, this.errorCatch);
       
       } else {
         this.$router.push("/login");

@@ -135,6 +135,7 @@ ion-content {
 .div-icons {
 	text-align: center;
 	padding: 3rem 0 0.8rem 0;
+	margin-bottom: 2rem;
 }
 
 .carousel-div {
@@ -142,7 +143,7 @@ ion-content {
 }
 
 .carousel-img {
-	height: 35rem;
+	height: 50rem;
 }
 
 .home-container {
