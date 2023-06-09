@@ -13,7 +13,7 @@ export default {
         <h2 class="title">Sobre Nosotros</h2>
         <div class="historia">
           <div class="story2">
-            <h3>Un poco de como surgio TechBook Store</h3>
+            <h3>Un poco de como surgió TechBook Store</h3>
             <p>
               En una ciudad pequeña, Alex, un apasionado de la tecnología y los
               libros, decidió crear un e-commerce llamado TechBooks. <br />
