@@ -20,18 +20,19 @@
 }
 
 ion-content {
-  width: calc(100% + 15px);
+	width: calc(100% + 15px);
+
 	&::part(scroll) {
 		padding-right: 15px;
 	}
-	
+
 }
 
 .page-body {
 	min-height: 100%;
 	display: flex;
-	flex-direction:column;
-	justify-content:space-between;
+	flex-direction: column;
+	justify-content: space-between;
 	background: var(--bg);
 }
 
@@ -47,18 +48,18 @@ ion-content {
 	margin-right: 6rem;
 }
 
-.search-bar{
+.search-bar {
 	width: 50rem;
 	color: var(--secondary);
 }
 
-.header-icon{
+.header-icon {
 	color: var(--secondary);
 	font-size: 1.5rem;
 	margin-inline: 0.5rem;
 }
 
-.main-title{
+.main-title {
 	display: none;
 	visibility: hidden;
 }
@@ -99,52 +100,52 @@ ion-content {
 	text-transform: uppercase;
 	margin-left: 6rem;
 	margin-right: 6rem;
-  }
-  
+}
+
 
 .invisible-scroll {
 	overflow-y: scroll;
 }
- 
+
 .invisible-scroll::-webkit-scrollbar {
 	display: none;
 }
 
 /* MAIN / HOME  */
 
-.home-text{
+.home-text {
 	color: var(--secondary);
 	opacity: 0.8;
 }
 
-.home-icon{
+.home-icon {
 	color: var(--secondary);
 	font-size: 1.3rem;
 	margin: 0 1rem 0 0;
 }
 
-.title{
+.title {
 	color: var(--primary);
 	text-align: center;
 	font-size: 2rem;
 }
 
-	/*HOME*/
+/*HOME*/
 
 .div-icons {
 	text-align: center;
 	padding: 3rem 0 0.8rem 0;
 }
 
-.carousel-div{
+.carousel-div {
 	margin-top: none;
 }
 
-.carousel-img{
+.carousel-img {
 	height: 35rem;
 }
 
-.home-container{
+.home-container {
 	display: flex;
 	flex-direction: column;
 	align-self: center;
@@ -154,14 +155,14 @@ ion-content {
 	font-size: 18px;
 }
 
-.home-cards{
+.home-cards {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: center;
 }
 
-.card-item{
+.card-item {
 	color: #fff;
 	font-weight: 700;
 	background-color: var(--third);
@@ -173,13 +174,13 @@ ion-content {
 	text-decoration: none;
 }
 
-.card-item:hover{
+.card-item:hover {
 	background-color: #bdd7ff;
 	color: var(--light);
 	transition-duration: 0.5s;
 }
 
-.card-item > p {
+.card-item>p {
 	background: none;
 	text-align: center;
 	margin: 0;
@@ -195,61 +196,68 @@ ion-content {
 	justify-content: center;
 }
 
-.product-card {
-	width: 30%;
-	margin: 1rem;
-	border: 1px solid var(--primary);
-	border-radius: 0.6rem;
-	text-align: center;
+ion-card {
+	--background: var(--dark);
 }
 
-.products-name{
+.product-card {
+	width: 20rem;
+	height: 30rem;
+	margin: 1rem;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem 3rem 2rem 3rem;
+}
+
+.products-name {
 	color: var(--secondary);
 	margin: 1rem 0;
 }
 
-.products-desc{
+.products-desc {
 	color: var(--darkermain);
-	/*min-height: 3rem;*/
 	height: 3.5rem;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
 }
 
-.products-desc:hover{
-    overflow: visible; 
-    white-space: normal;
-    height:auto;  /* just added this line */
+.products-desc:hover {
+	overflow: visible;
+	white-space: normal;
+	height: auto;
+	/* just added this line */
 }
 
 
-.products-img{
-	max-height: 26rem;
-	width: auto;
+.products-img {
+	max-height: 20rem;
+	width: 15rem;
 	overflow: hidden;
+	object-fit: cover;
 }
 
-.products-price{
+.products-price {
 	color: var(--secondary);
 	font-size: 1.5rem;
 }
 
-.products-btn{
+.products-btn {
 	margin-block: 0.5rem;
 }
 
 /* Vendor */
 
-.vendor-btn-container{
+.vendor-btn-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	align-items: center;	
+	align-items: center;
 
 }
 
-.vendor-input{
+.vendor-input {
 	width: 30%;
 	color: var(--primary);
 	font-size: 1.25rem;
@@ -257,7 +265,7 @@ ion-content {
 
 /* LOGIN */
 
-.login-container{
+.login-container {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -266,14 +274,14 @@ ion-content {
 	text-align: center;
 }
 
-.login-form-input{
+.login-form-input {
 	color: var(--primary);
-	
+
 }
 
 /* Profile */
 
-.profile-items{
+.profile-items {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -281,7 +289,7 @@ ion-content {
 	align-items: center;
 }
 
-.profile-item{
+.profile-item {
 	display: flex;
 	flex-direction: row;
 	color: var(--primary);
@@ -290,7 +298,7 @@ ion-content {
 	width: 45%;
 }
 
-.profile-text{
+.profile-text {
 	text-align: left;
 	margin-top: 2%;
 	width: 25%;
@@ -307,14 +315,14 @@ ion-content {
 	background-color: #181717;
 	width: 100%;
 }
-  
+
 .footer-icon {
 	margin: 1.5rem;
 	color: var(--primary);
 	font-size: 1.7rem;
 	background-color: #181717;
 }
-  
+
 .info-footer {
 	display: flex;
 	justify-content: center;
@@ -322,9 +330,9 @@ ion-content {
 	margin: 1rem 3rem 2rem 3rem;
 	padding: 1rem 3rem 1rem 3rem;
 	color: var(--primary);
-	background-color: #181717; 
+	background-color: #181717;
 }
-  
+
 .info-store {
 	text-align: justify;
 	height: 13rem;
@@ -332,32 +340,32 @@ ion-content {
 	background-color: #181717;
 }
 
-.info-store h3{
+.info-store h3 {
 	background-color: #181717;
 }
-  
-.info-store p{
+
+.info-store p {
 	background-color: #181717;
 }
-  
+
 .info-shop {
 	text-decoration: none;
 	text-align: left;
 	margin-left: 9rem;
 	background-color: #181717;
 }
-  
+
 .router-link {
 	text-decoration: none;
 	color: var(--primary);
 }
-  
+
 .iconos-footer {
 	display: flex;
 	justify-content: center;
-	background-color: #181717; 
+	background-color: #181717;
 }
-  
+
 .derechos {
 	border-top: none;
 	text-align: center;
@@ -368,118 +376,116 @@ ion-content {
 	font-size: 1rem;
 	margin-bottom: 0;
 }
-  
-  /* NOSOTROS */
-  .historia {
+
+/* NOSOTROS */
+.historia {
 	display: flex;
 	flex-flow: nowrap;
-  }
-  .historia img {
+}
+
+.historia img {
 	float: right;
 	max-width: 35%;
 	max-height: 35%;
 	margin-left: 2rem;
-  }
-  .story2 {
+}
+
+.story2 {
 	max-width: 50%;
 	min-height: auto;
 	margin: 2rem;
 	color: var(--primary);
 	text-align: left;
-  }
-  .story2 h3 {
+}
+
+.story2 h3 {
 	text-align: center;
-  }
-  .empresa {
+}
+
+.empresa {
 	display: flex;
 	flex-flow: nowrap;
-  }
-  .compromis {
+}
+
+.compromis {
 	float: left;
 	max-width: 50%;
 	min-height: 50%;
 	overflow: hidden;
 	color: var(--primary);
 	margin: 2rem;
-  }
-  .compromis h3{
+}
+
+.compromis h3 {
 	text-align: center;
 
-  }
-  .mision h3 {
+}
+
+.mision h3 {
 	text-align: center;
-  }
-  .mision {
+}
+
+.mision {
 	float: right;
 	max-width: 70%;
 	min-height: 50%;
 	overflow: hidden;
 	margin: 2rem;
 	color: var(--primary);
-  }
-  .equipo {
+}
+
+.equipo {
 	display: flex;
 	flex-flow: nowrap;
 	color: var(--primary);
-  }
-  .equip h3 {
+}
+
+.equip h3 {
 	text-align: center;
 	color: var(--primary);
-  }
-  .personal {
+}
+
+.personal {
 	max-width: 500%;
 	max-height: 20%;
 	text-align: center;
 	margin: 2rem 2rem 2rem 2rem;
-  }
+}
 
-.product-container {
-	color: var(--secondary);
-	padding: 20px;
-	width: 20rem;
-	height: 30rem;
-	margin: 1rem;
-	text-align: center;
-  }
-
-  ion-card {
-	--background: var(--dark);
-  }
- 
-  .product-description {
-	color: var(--secondary);
-	font-weight: bold; 
-	margin-bottom: 10px;
-  }
-
-  /* CONTACTO */
+/* CONTACTO */
 .contacto {
 	display: flex;
 	flex-flow: nowrap;
 	max-width: 100%;
 }
-.contacto h2{
+
+.contacto h2 {
 	text-align: center;
-	color:var(--primary);
+	color: var(--primary);
 }
-.map{
+
+.map {
 	padding: 1rem;
 }
-.form-contacto{
+
+.form-contacto {
 	width: 100%;
 	padding: 1rem;
 }
-form{
+
+form {
 	display: flex;
 	flex-direction: column;
 	/* arriba | derecha | abajo | izquierda */
 	padding: 0 1rem 0 1rem;
 }
+
 form label {
 	padding: 1rem 0 1rem;
 	color: var(--primary);
-  
+
 }
+
 form input {
 	display: flex;
 	flex-direction: column;
@@ -489,14 +495,16 @@ form input {
 	border: 2px white solid;
 	color: white;
 }
+
 form textarea {
 	width: 100%;
 	min-height: 8rem;
 	max-height: 10rem;
 	color: white;
 	border: 2px white solid;
-  
+
 }
+
 form button {
 	border-radius: 0 0 1rem 1rem;
 	background: #000000;
@@ -505,6 +513,7 @@ form button {
 	width: 100%;
 	height: 4rem;
 }
+
 form button:hover {
 	color: grey;
 	box-shadow: 0px 0 10px black;

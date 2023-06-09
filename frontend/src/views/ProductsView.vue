@@ -39,10 +39,10 @@ export default {
     addToCart(id) {
       if(this.isLogin){
         //Nuestra DB:
-        productService.getData(id, (res) => { console.log(res.data); useCartStore().addProduct({...res.data.product}); }, this.errorCatch);
+        //productService.getData(id, (res) => { console.log(res.data); useCartStore().addProduct({...res.data.product}); }, this.errorCatch);
         
         //mockapi:
-        //productService.getData(id, (res) => { console.log(res.data); useCartStore().addProduct({...res.data}); }, this.errorCatch);
+        productService.getData(id, (res) => { console.log(res.data); useCartStore().addProduct({...res.data}); }, this.errorCatch);
       
       } else {
         this.$router.push("/login");
@@ -62,20 +62,17 @@ export default {
   <ion-page>
     <ion-content>
       <div class="page-body">
-        <h2 class="title">Products page</h2>
+        <h2 class="title">Productos</h2>
         <div class="invisible-scroll">
           <div class="products-view">
-            <ion-card class="product-container" v-for="p in products" :key="p.id">
-              <!--  <ion-card-header>
-                <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
-              </ion-card-header>-->
-              <ion-img class="products-img" :src = p.image></ion-img>
-              
-              <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
-              <ion-card-content class="products-description">{{ p.description }}</ion-card-content>
-             
+            <ion-card class="product-card" v-for="p in products" :key="p.id">
+              <ion-img class="products-img" :src=p.image></ion-img>
               <!-- <ion-img :src=getImg(p.image)></ion-img> -->
-              
+
+               <ion-card-header>
+                <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
+              </ion-card-header>
+              <ion-card-content class="products-desc">{{ p.description }}</ion-card-content>
               <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
               <ion-button class="products-btn" @click="addToCart(p.id)">Add to Cart</ion-button>
             </ion-card>
