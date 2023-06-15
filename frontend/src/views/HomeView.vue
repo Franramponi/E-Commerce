@@ -1,12 +1,50 @@
 <script>
 import {} from "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js";
-import { IonPage } from '@ionic/vue'
+import { IonPage, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg, IonButton, IonInput } from '@ionic/vue'
 import Footer from './Footer.vue'
-import { RouterLink, RouterView } from "vue-router";
+import productService from '../services/productService.js'
+import { useCartStore } from '../stores/cart.js'
+import { storeToRefs } from 'pinia';
+import { useLoginStore } from '../stores/login.js'
 
 export default {
-  components: { Footer, IonPage }
+  components: {Footer, IonPage, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg, IonButton, IonInput },
+   setup() {
+		const store = useLoginStore();
+		const { isLogin } = storeToRefs(store);
+		return { isLogin };
+	},
+  data() {
+		return {
+      products: []
+		}
+	},
+  mounted() {
+    this.loadData();
+  },
+  methods: {
+    errorCatch(err) {
+      console.log(err);
+      alert(err);
+    },
+    loadData() {
+      productService.loadData((res) => {
+        let productsResponse = res.data.products;
+        this.products = productsResponse.slice(0, 6); 
+        },
+        this.errorCatch);
+    },
+    addToCart(id) {
+      console.log(this.filters);
+      if(this.isLogin){
+        productService.getData(id, (res) => { console.log(res.data); useCartStore().addProduct({...res.data.product}); }, this.errorCatch);
+      } else {
+        this.$router.push("/login");
+      }
+    }
+  }
 }
+
 
 </script>
 
@@ -57,20 +95,7 @@ export default {
         </div>
 
         <div class="home-container">
-          <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, adipisci ea? Quis veniam iste cum animi delectus perferendis cumque. Necessitatibus sapiente aliquam iure possimus voluptatem placeat incidunt aut doloribus voluptatum.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nam accusantium inventore soluta iusto a labore veritatis ex quibusdam, fugit similique numquam corrupti sint quis delectus ducimus vero cum eum!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi velit possimus soluta iste! Dolorem distinctio, neque quam, molestias delectus rerum hic in, temporibus doloremque molestiae omnis ea qui exercitationem aliquam!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus distinctio ab consequuntur. Temporibus debitis adipisci obcaecati provident qui quas voluptatibus maxime! Explicabo voluptates est suscipit, praesentium recusandae reiciendis facere illum.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis libero laborum eum eius, ullam corporis ea nam velit quidem adipisci quia nostrum culpa voluptas voluptatem cum. Aliquid, sint. Amet, nesciunt!
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi repudiandae libero perspiciatis error odio molestiae dolores fuga expedita explicabo natus. Accusantium tempore vitae reprehenderit laudantium perferendis minima officia quasi perspiciatis.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas cupiditate in explicabo dicta doloremque numquam alias error amet voluptatem reiciendis voluptatibus praesentium incidunt, laudantium debitis reprehenderit! Necessitatibus beatae assumenda modi!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum soluta maxime iusto reiciendis eos ipsa minus vitae quibusdam consequatur impedit delectus eveniet ea, quasi neque adipisci quisquam commodi voluptatibus ullam?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quibusdam hic, placeat exercitationem nesciunt consequatur? Officiis, explicabo debitis. Iusto sit nostrum asperiores velit veritatis expedita nobis eveniet sint voluptatum ullam?
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus temporibus eum sapiente, quos dignissimos ab, cumque facilis inventore magni esse necessitatibus. Tenetur quae unde, eveniet cupiditate amet vero nobis non!
-          </p>
-
-
+         
           <div class="home-cards">
             <RouterLink to="/products" class="card-item">
               <p>Notebooks</p>
@@ -78,9 +103,22 @@ export default {
             <RouterLink to="/products" class="card-item">
               <p>Libros</p>
             </RouterLink>
-            
           </div>
 
+         <div class="products-column invisible-scroll">
+            <div class="products-view">
+              <ion-card class="product-card" v-for="p in products" :key="p.id">
+                <ion-img class="products-img" :src=p.image></ion-img>
+                
+                <ion-card-header>
+                  <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content class="products-desc">{{ p.description }}</ion-card-content>
+                <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
+                <ion-button class="products-btn" @click="addToCart(p.id)">Add to Cart</ion-button>
+              </ion-card>
+            </div>
+          </div>
 
         </div>
         <Footer/>
