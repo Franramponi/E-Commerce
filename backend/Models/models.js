@@ -3,10 +3,10 @@ import Product from "./Product.js";
 
 // Asociación entre User y Product (1:N) (Vendedores)
 User.hasMany(Product, { 
-    foreignKey: 'userId' 
+    foreignKey: 'vendor_id' 
 });
 Product.belongsTo(User, { 
-    foreignKey: 'userId' 
+    foreignKey: 'vendor_id' 
 });
 
 
