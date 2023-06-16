@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-	baseURL: 'https://6466a4262ea3cae8dc1ba7e1.mockapi.io/products',
+	//baseURL: 'https://6466a4262ea3cae8dc1ba7e1.mockapi.io/products',
+	baseURL: 'http://localhost:8080/products',
 	headers: {
 		'Accept': 'application/json',
 		'Content-Type': 'application/json'
@@ -14,8 +15,13 @@ export default {
 			.then(then)
 			.catch(errorCatch);
 	},
-	loadData(then, errorCatch) {
-		apiClient.get('')
+	loadData(filters, then, errorCatch) {
+		let data = "?";
+		filters.forEach(e => {
+			data += e.name + "=" + e.value + "&";
+    });
+		data = data.slice(0, -1);
+		apiClient.get(data)
 			.then(then)
 			.catch(errorCatch);
 	},

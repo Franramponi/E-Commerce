@@ -8,7 +8,6 @@
 	--dark: #000814;
 	--light: #0053a0;
 	--darkermain: #9b9547;
-	--ion-background-color: var(--bg);
 	--f: #868483;
 }
 
@@ -34,6 +33,10 @@ ion-content {
 	flex-direction: column;
 	justify-content: space-between;
 	background: var(--bg);
+}
+
+.legacy-select {
+	min-height: 56px;
 }
 
 /* HEADER */
@@ -205,24 +208,18 @@ ion-content {
 }
 
 .filter {
-	background: white;
 	display: flex;
 	align-items: center;
 	padding: 0 1rem 0 1rem;
 }
 
 .filter .filter-label {
-	background: white;
 	flex: 2;
 }
 
 .filter .filter-input {
 	flex: 4;
 	text-align: center;
-}
-
-.filter .filter-input * {
-	background: white;
 }
 
 .products-view {
