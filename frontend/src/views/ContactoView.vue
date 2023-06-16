@@ -25,24 +25,22 @@ export default {
           </div>
           <section class="form-contacto">
             <h2>Contacto</h2>
-           <!--  <div class="form"> -->
-              <form action="/enviar" method="post">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" />
+            <form action="/enviar" method="post">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" />
 
-                <label for="email">Correo electrónico</label>
-                <input type="email" id="email" required />
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" required />
 
-                <label for="telefono">Telefono</label>
-                <input type="numer" id="telefono" />
+              <label for="telefono">Telefono</label>
+              <input type="numer" id="telefono" />
 
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje"></textarea>
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje"></textarea>
 
-              <button type="submit">Enviar</button>
-              </form>
-<!--             </div>
- -->          </section>
+            <button type="submit">Enviar</button>
+            </form>
+          </section>
         </div>
         <Footer />
       </div>
