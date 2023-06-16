@@ -9,6 +9,7 @@ const productSeed = async () => {
 				stock: 1,
 				image: "1",
 				price: 111.11,
+				type_id: 1,
 				vendor_id: 1
 			},
 			{
@@ -17,6 +18,7 @@ const productSeed = async () => {
 				stock: 2,
 				image: "2",
 				price: 222.22,
+				type_id: 1,
 				vendor_id: 2
 			},
 			{
@@ -25,6 +27,7 @@ const productSeed = async () => {
 				stock: 3,
 				image: "3",
 				price: 333.33,
+				type_id: 2,
 				vendor_id: 1
 			},
 			{
@@ -33,6 +36,7 @@ const productSeed = async () => {
 				stock: 4,
 				image: "4",
 				price: 444.44,
+				type_id: 2,
 				vendor_id: 2
 			}
 		])

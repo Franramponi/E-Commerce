@@ -17,7 +17,7 @@ const tagSeed = async () => {
 			},
 			{ 
 				name: "tag5"
-			},
+			}
 		])
 	}
 	catch (err) {

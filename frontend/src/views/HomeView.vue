@@ -28,7 +28,7 @@ export default {
       alert(err);
     },
     loadData() {
-      productService.loadData((res) => {
+      productService.loadData([], (res) => {
         let productsResponse = res.data.products;
         this.products = productsResponse.slice(0, 6); 
         },

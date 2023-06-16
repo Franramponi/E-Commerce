@@ -1,4 +1,4 @@
-import { Product, Tag, ProductTags } from "../Models/models.js";
+import { Product, Tag, Type } from "../Models/models.js";
 import { Op } from 'sequelize'
 
 class ProductController {
@@ -27,10 +27,16 @@ class ProductController {
       if (req.query.marca) {
         options.where.marca = req.query.marca;
       }
-      if (req.query.tipo && req.query.tipo != 'Todos') {
-        options.where.tipo = req.query.tipo;
+      if (req.query.tipo && req.query.tipo != 'Todo') {
+        options.include = [{
+          model: Type,
+          where: {
+            name: req.query.tipo
+          },
+          attributes: []
+        }];
       }
-      if (req.query.tag) {
+      if (req.query.tag && req.query.tag != 'Todo') {
         options.include = [{
           model: Tag,
           where: {

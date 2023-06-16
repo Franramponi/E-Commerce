@@ -1,7 +1,6 @@
 <script>
 import { IonPage, IonContent, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg, IonButton, IonInput, IonSelect, IonSelectOption } from '@ionic/vue'
-//import json from '../data/products.json'
-import productService from '../services/productService.js'
+import { productService, tagService } from '../services/services.js'
 import { useCartStore } from '../stores/cart.js'
 import { storeToRefs } from 'pinia';
 import { useLoginStore } from '../stores/login.js'
@@ -16,7 +15,6 @@ export default {
 	},
 	data() {
 		return {
-			//products: json
       products: [],
       filters: [
         {
@@ -44,9 +42,17 @@ export default {
           id: 4,
           name: "tipo",
           label: "Tipo",
-          defaultValue: "Todos",
+          defaultValue: "Todo",
           type: "options",
-          options: [ "Todos", "Libros", "Laptops" ]
+          options: [ "Todo", "Libro", "Laptop" ]
+        },
+        {
+          id: 5,
+          name: "tag",
+          label: "Tag",
+          defaultValue: "Todo",
+          type: "options",
+          options: [ "Todo" ]
         }
       ]
 		}
@@ -66,6 +72,12 @@ export default {
     },
     loadData() {
       //Nuestra DB:
+      tagService.loadData((res) => {
+        let tags = res.data.tags.map((e) => { return e.name });
+        this.filters.forEach((e) => { 
+          if (e.name === "tag") { e.options = e.options.concat(tags) } 
+        });
+      }, this.errorCatch);
       productService.loadData(this.filters, (res) => { this.products = res.data.products; }, this.errorCatch);
 
       //mockapi:

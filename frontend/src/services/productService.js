@@ -16,6 +16,7 @@ export default {
 			.catch(errorCatch);
 	},
 	loadData(filters, then, errorCatch) {
+		console.log(filters);
 		let data = "?";
 		filters.forEach(e => {
 			data += e.name + "=" + e.value + "&";

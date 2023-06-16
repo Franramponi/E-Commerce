@@ -27,6 +27,10 @@ const Product = sequelize.define('Product', {
     type: DataTypes.DECIMAL(9,2),
     allowNull: false
   },
+  type_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
   vendor_id: {
     type: DataTypes.INTEGER,
     allowNull: false
