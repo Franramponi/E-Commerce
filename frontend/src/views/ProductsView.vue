@@ -105,8 +105,8 @@ export default {
               <label class="filter-label" :for="'filter' + f.id">{{ f.label }}:</label>
               <ion-input class="filter-input" v-if="f.type != 'options'" :name="'filter' + f.id" :value="f.defaultValue" :type="f.type" v-model="f.value"></ion-input>
               
-              <ion-select class="filter-input" v-if="f.type == 'options'" :name="'filter' + f.id" :value="f.defaultValue" legacy=true v-model="f.value">
-                <ion-select-option v-for="o in f.options" :key="o" :value="o">{{ o }}</ion-select-option>
+              <ion-select class="filter-select" v-if="f.type == 'options'" :name="'filter' + f.id" :value="f.defaultValue" legacy=true v-model="f.value">
+                <ion-select-option v-for="o in f.options" :key="o" :value="o" >{{ o }}</ion-select-option>
               </ion-select>
             </div>
 
