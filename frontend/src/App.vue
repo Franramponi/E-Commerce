@@ -49,14 +49,13 @@ export default {
         <RouterLink class="nav-item" to="/contacto">Contacto</RouterLink>
       </div>
     </ion-header>
+
     <ion-content class="main">
-    <ion-router-outlet/>
+      <ion-router-outlet/>
     </ion-content>
   </ion-app>
 </template>
 
 <style>
 @import './style/style.css';
-
-
 </style>

@@ -15,8 +15,13 @@ export default {
 			.then(then)
 			.catch(errorCatch);
 	},
-	loadData(then, errorCatch) {
-		apiClient.get('')
+	loadData(filters, then, errorCatch) {
+		let data = "?";
+		filters.forEach(e => {
+			data += e.name + "=" + e.value + "&";
+    });
+		data = data.slice(0, -1);
+		apiClient.get(data)
 			.then(then)
 			.catch(errorCatch);
 	},
