@@ -1,4 +1,4 @@
-import { Product } from "../Models/models.js";
+import { Product, Tag, ProductTags } from "../Models/models.js";
 import { Op } from 'sequelize'
 
 class ProductController {
@@ -10,18 +10,34 @@ class ProductController {
     console.log(req.query);
     try {
       const options = {
-        where: {
-					price: {
-            [Op.between]: [req.query.min_precio, req.query.max_precio]
-          }
-				},
+        where: {},
 				attributes: ["id", "name", "description", "stock", "image", "price", "vendor_id"]
       }
+
+      if (req.query.min_precio || req.query.max_precio) {
+        options.where.price = {};
+        if (req.query.min_precio) {
+          options.where.price[Op.gte] = req.query.min_precio;
+        }
+        if (req.query.max_precio) {
+          options.where.price[Op.lte] = req.query.max_precio;
+        }
+      }
+
       if (req.query.marca) {
         options.where.marca = req.query.marca;
       }
-      if (req.query.tipo != 'Todos') {
+      if (req.query.tipo && req.query.tipo != 'Todos') {
         options.where.tipo = req.query.tipo;
+      }
+      if (req.query.tag) {
+        options.include = [{
+          model: Tag,
+          where: {
+            name: req.query.tag
+          },
+          attributes: []
+        }];
       }
       
       const products = await Product.findAll(options);
