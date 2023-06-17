@@ -1,62 +1,73 @@
 <script>
-import { IonContent, IonPage, IonButton, IonInput } from '@ionic/vue'
-import { useLoginStore } from '../stores/login.js'
-import { storeToRefs } from 'pinia';
-import Footer from './Footer.vue'
+import { IonContent, IonPage, IonButton, IonInput } from "@ionic/vue";
+import { useLoginStore } from "../stores/login.js";
+import { storeToRefs } from "pinia";
+import Footer from "./Footer.vue";
+import userService from "../services/userService.js";
 
 export default {
   components: { IonContent, Footer, IonPage, IonButton, IonInput },
-	setup() {
-		const store = useLoginStore();
-		const { login } = store;
-		const { isLogin } = storeToRefs(store);
-		return { login, isLogin };
-	},
-	data() {
-		return {
-			user: {}
-		}
-	},
+  setup() {
+    const store = useLoginStore();
+    const { login } = store;
+    const { isLogin } = storeToRefs(store);
+    return { login, isLogin };
+  },
+  data() {
+    return {
+      user: {},
+      users: [],
+    };
+  },
+  /*mounted() {
+    this.loadUsersData();
+  },*/
   methods: {
+    errorCatch(err) {
+      console.log(err);
+      alert(err);
+    },
+    loadUserData() {
+      const name = user.name;
+      const pass = user.pass; 
+      const req = {
+        username: name,
+        password: pass
+      }
+      userService.getData((req) => {
+        console.log(req);
+        this.user = req.body.user;
+      }, this.errorCatch);
+    },
     tryLogin() {
       if (this.isLogin == false) {
-				if (this.user.name == 'username' && this.user.pass == 'password') {
-					this.login({ name: this.user.name, email: 'user@gmail.com', creditCard:'4545858565652525', address:'5th Avenue', document:'424235351', phoneNumber:'11505062253', permLevel: 1, vendorID: -1 });
-					this.$router.push("/");
-				}
-				else if (this.user.name == 'admin' && this.user.pass == 'password') {
-					this.login({ name: this.user.name,email: 'admin@gmail.com', creditCard: '13674678136', address: '2381 Admin Dr.', document: '26392101', phoneNumber: '13894712983', permLevel: 10, vendorID: 0 });
-					this.$router.push("/");
-				}
-				else {
-					alert("Incorrect username or password");
-				}
-			}
-			else {
-				alert("Already logged in");
-			}
-			this.user = {};
-    }
-  }
-}
-
+        this.loadUserData();
+        console.log(this.user);
+        
+      } else {
+        alert("Already logged in");
+      }
+      this.user = {};
+    },
+  },
+};
 </script>
 
 <template>
   <ion-page>
     <ion-content>
       <div class="page-body">
-				<div class="login-container">
-					<div class="login-form">
-						<h2 class="title">Login page</h2>
-						<ion-input class="login-form-input" v-model="user.name" label="Username:" placeholder="username"></ion-input>
-						<ion-input class="login-form-input" v-model="user.pass" label="Password:" type="password" placeholder="password"></ion-input>
-						<ion-button class="login-button" @click="tryLogin">Login</ion-button>
-					</div>
-				</div>
-				
-				<Footer/>
-			</div>
+        <div class="login-container">
+          <div class="login-form">
+            <h2 class="title">Login page</h2>
+            <ion-input class="login-form-input" v-model="user.name" label="Username:" placeholder="username"></ion-input>
+            <ion-input class="login-form-input" v-model="user.pass" label="Password:" type="password" placeholder="password"></ion-input>
+            <ion-button class="login-button" @click="tryLogin">Login</ion-button>
+          </div>
+        </div>
+
+        <Footer />
+      </div>
     </ion-content>
   </ion-page>
 </template>
