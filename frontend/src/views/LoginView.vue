@@ -13,41 +13,47 @@ export default {
     const { isLogin } = storeToRefs(store);
     return { login, isLogin };
   },
-  data() {
+ data() {
     return {
-      user: {},
+      user: {
+        name: '',
+        pass: ''
+      },
       users: [],
     };
   },
-  /*mounted() {
-    this.loadUsersData();
-  },*/
   methods: {
     errorCatch(err) {
       console.log(err);
       alert(err);
     },
     loadUserData() {
-      const name = user.name;
-      const pass = user.pass; 
       const req = {
-        username: name,
-        password: pass
-      }
-      userService.getData((req) => {
-        console.log(req);
-        this.user = req.body.user;
+        username: this.user.name,
+        password: this.user.pass,
+      };
+
+      userService.getUserByUsernameAndPassword(req, (response) => {
+        if (response.data.success) {
+          this.users = response.data.users;
+          // Realiza las acciones necesarias con los usuarios encontrados
+          console.log(this.users);
+        } else {
+          alert(response.data.message);
+        }
       }, this.errorCatch);
     },
     tryLogin() {
-      if (this.isLogin == false) {
+      if (this.isLogin === false) {
         this.loadUserData();
         console.log(this.user);
-        
       } else {
         alert("Already logged in");
       }
-      this.user = {};
+      this.user = {
+        name: '',
+        pass: ''
+      };
     },
   },
 };
@@ -60,9 +66,22 @@ export default {
         <div class="login-container">
           <div class="login-form">
             <h2 class="title">Login page</h2>
-            <ion-input class="login-form-input" v-model="user.name" label="Username:" placeholder="username"></ion-input>
-            <ion-input class="login-form-input" v-model="user.pass" label="Password:" type="password" placeholder="password"></ion-input>
-            <ion-button class="login-button" @click="tryLogin">Login</ion-button>
+            <ion-input
+              class="login-form-input"
+              v-model="user.name"
+              label="Username:"
+              placeholder="username"
+            ></ion-input>
+            <ion-input
+              class="login-form-input"
+              v-model="user.pass"
+              label="Password:"
+              type="password"
+              placeholder="password"
+            ></ion-input>
+            <ion-button class="login-button" @click="tryLogin"
+              >Login</ion-button
+            >
           </div>
         </div>
 

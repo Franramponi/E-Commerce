@@ -14,9 +14,9 @@ export default {
 			.then(then)
 			.catch(errorCatch);
 	},
-	getData(req, then, errorCatch) {
-		apiClient.get('/:username/:password' + req)
-			.then(then)
-			.catch(errorCatch);
-	}
+	getUserByUsernameAndPassword(req, then, errorCatch) {
+		apiClient.get(`/${req.username}/${req.password}`)
+		  .then(then)
+		  .catch(errorCatch);
+	  }
 }
