@@ -38,6 +38,12 @@ ion-content {
 	background: linear-gradient(var(--third) 0%, var(--bg) 100%);
 }
 
+input[type='number']::-webkit-inner-spin-button, 
+input[type='number']::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 /* HEADER */
 .header-container {
 	background-color: var(--bg);
@@ -203,6 +209,11 @@ ion-content {
 	background: none;
 }
 
+.under-title {
+	align-self: center;
+	width: 95%;
+}
+
 /*HOME*/
 
 .div-icons {
@@ -332,7 +343,7 @@ ion-card {
 	text-align: center;
 	justify-content: center;
 	align-items: center;
-	padding: 2rem 3rem 2rem 3rem;
+	padding: 2rem 1rem 2rem 1rem;
 	border-radius: 10px;
 }
 
@@ -359,7 +370,7 @@ ion-card {
 
 .products-img {
 	max-height: 20rem;
-	width: 15rem;
+	width: auto;
 	overflow: hidden;
 	object-fit: cover;
 }
@@ -381,12 +392,47 @@ ion-card {
 
 /* Vendor */
 
+.product-create-btn {
+	max-width: 20rem;
+	width: 100%;
+	float: right;
+}
+
+.popup {
+	--background: var(--light);
+	--ion-item-background: var(--light);
+}
+
+.popup-content {
+	margin: 1rem 2rem 1rem 2rem ;
+}
+
+.popup-title {
+	align-self: center;
+	text-align: center;
+	color: var(--primary);
+}
+
+.popup-input {
+	color: var(--primary);
+}
+
+.popup-textarea {
+	min-height: 6rem !important;
+	max-height: 8rem !important;
+	color: var(--primary);
+}
+
 .vendor-btn-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
+}
 
+.vendor-btn-container .vendor-btn {
+	width: 40%;
+	min-width: 40%;
 }
 
 .vendor-input {
@@ -550,7 +596,6 @@ ion-card {
 
 .compromis h3 {
 	text-align: center;
-
 }
 
 .mision h3 {
@@ -603,56 +648,50 @@ ion-card {
 	width: 600px;
 }
 
-.form-contacto {
+.seccion-contacto {
 	width: 60%;
 	padding: 1rem;
 }
 
-form {
+.form-contacto {
 	display: flex;
 	flex-direction: column;
 	/* arriba | derecha | abajo | izquierda */
 	padding: 0 1rem 0 1rem;
 }
 
-form label {
-	padding: 1rem 0 1rem;
-	color: var(--primary);
-
-}
-
-form input {
+.form-contacto-input {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
 	padding: 0.5em;
 	width: 100%;
-	border: 2px #fff solid;
-	color: #fff;
+	color: var(--primary);
 }
 
-form textarea {
+.form-contacto .label-text-wrapper {
+	width: 30%
+}
+
+.form-contacto-texto {
 	width: 100%;
-	min-height: 8rem;
-	max-height: 10rem;
-	color: #fff;
-	border: 2px #fff solid;
-
+	min-height: 8rem !important;
+	max-height: 10rem !important;
+	color: var(--primary);
 }
 
-form button {
+.form-contacto-texto .native-textarea {
+	text-align: center;
+}
+
+.form-contacto-submit {
 	margin-top: 2%;
 	border-radius: 6px;
-	background: #000000;
+	--background: #000000;
 	color: #fff;
 	cursor: pointer;
 	width: 100%;
 	height: 4rem;
-}
-
-form button:hover {
-	box-shadow: 0px 0 10px grey;
-	transition: 0.1s;
 }
 
 /* RESPONSIVE STYLE */

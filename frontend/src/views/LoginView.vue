@@ -25,7 +25,7 @@ export default {
 					this.$router.push("/");
 				}
 				else if (this.user.name == 'admin' && this.user.pass == 'password') {
-					this.login({ name: this.user.name,email: 'admin@gmail.com', creditCard: '13674678136', address: '2381 Admin Dr.', document: '26392101', phoneNumber: '13894712983', permLevel: 10, vendorID: 0 });
+					this.login({ name: this.user.name,email: 'admin@gmail.com', creditCard: '13674678136', address: '2381 Admin Dr.', document: '26392101', phoneNumber: '13894712983', permLevel: 10, vendorID: 1 });
 					this.$router.push("/");
 				}
 				else {

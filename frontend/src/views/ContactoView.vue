@@ -1,9 +1,9 @@
 <script>
-import { IonPage } from "@ionic/vue";
+import { IonPage, IonInput,IonTextarea, IonButton } from "@ionic/vue";
 import Footer from "./Footer.vue";
 
 export default {
-  components: { Footer, IonPage },
+  components: { Footer, IonPage, IonInput, IonTextarea, IonButton },
 };
 </script>
 <template>
@@ -23,26 +23,20 @@ export default {
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-          <section class="form-contacto">
+          <section class="seccion-contacto">
             <h2>Contacto</h2>
-           <!--  <div class="form"> -->
-              <form action="/enviar" method="post">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" />
+            <form class="form-contacto" action="/enviar" method="post">
+              <ion-input class="form-contacto-input" type="text" label="Nombre" placeholder="Nombre Completo" />
 
-                <label for="email">Correo electrónico</label>
-                <input type="email" id="email" required />
+              <ion-input class="form-contacto-input" type="email" label="Correo electrónico"  placeholder="tech@book.store" />
 
-                <label for="telefono">Telefono</label>
-                <input type="numer" id="telefono" />
+              <ion-input class="form-contacto-input" type="number" label="Telefono" placeholder="(00) 0000-0000"/>
 
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje"></textarea>
+              <ion-textarea class="form-contacto-texto" label="Mensaje" placeholder="Escribi tu mensaje aqui"></ion-textarea>
 
-              <button type="submit">Enviar</button>
-              </form>
-<!--             </div>
- -->          </section>
+            <ion-button class="form-contacto-submit" type="submit">Enviar</ion-button>
+            </form>
+          </section>
         </div>
         <Footer />
       </div>
