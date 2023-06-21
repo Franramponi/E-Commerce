@@ -59,6 +59,47 @@ Puede cambiar el .env para utilizar su propia base de datos.
 
 		}
 ```
+```
+/users/name [GET] -> Devuelve el usuario registrado en el sistema con el nombre especificado
+```
+```
+/users [POST] -> Crea un nuevo usuario
+
+	Body:
+
+		{
+
+			name: [string],
+
+			password: [string],
+
+			email: [string (email)],
+
+			credit_card: [string (10 caracteres)],
+
+			address: [string],
+
+			document: [string (8 caracteres)],
+
+			phone_number: [string (10 caracteres)],
+
+			vendor: [bool]
+
+		}
+```
+```
+/users/login [GET] -> Verificar el login de un usuario
+
+	Body:
+
+		{
+
+			name: [string],
+
+			password: [string]
+
+		}
+```
 
 ## Frontend
 
