@@ -20,15 +20,10 @@ Puede cambiar el .env para utilizar su propia base de datos.
 /products [GET] -> Devuelve todos los productos registrados en el sistema
 
 	Filtros (Se puede usar cualquier combinacion de ellos):
-
 		?min_precio=[int]
-
 		?max_precio=[int]
-
 		?tipo=['Todo' / 'Laptop' / 'Libro']
-
 		?tag=['Todo' / string]
-
 		?vendor_id=[int]
 ```
 ```
@@ -38,25 +33,15 @@ Puede cambiar el .env para utilizar su propia base de datos.
 /products [POST] -> Crea un nuevo producto
 
 	Body:
-
 		{
-
 			name: [string],
-
 			description: [string],
-
 			stock: [int],
-
 			image: [url],
-
 			price: [decimal],
-
 			type: ['Todo' / 'Laptop' / 'Libro'],
-
 			vendor_id: [int],
-
 			tags: [ string[] ] (En el caso de que un tag no exista en el sistema, se crea)
-
 		}
 ```
 ```
@@ -66,38 +51,24 @@ Puede cambiar el .env para utilizar su propia base de datos.
 /users [POST] -> Crea un nuevo usuario
 
 	Body:
-
 		{
-
 			name: [string],
-
 			password: [string],
-
 			email: [string (email)],
-
 			credit_card: [string (10 caracteres)],
-
 			address: [string],
-
 			document: [string (8 caracteres)],
-
 			phone_number: [string (10 caracteres)],
-
 			vendor: [bool]
-
 		}
 ```
 ```
 /users/login [GET] -> Verificar el login de un usuario
 
 	Body:
-
 		{
-
 			name: [string],
-
 			password: [string]
-
 		}
 ```
 
