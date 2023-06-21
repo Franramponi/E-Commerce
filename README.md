@@ -17,7 +17,7 @@ Puede cambiar el .env para utilizar su propia base de datos.
 /tags [GET] -> Devuelve todos los tags registrados en el sistema
 ```
 ```
-/products [GET] -> Devuelve todos los productos registrados en el sistema (Se le pueden especificar ciertos filtros)
+/products [GET] -> Devuelve todos los productos registrados en el sistema
 
 	Filtros (Se puede usar cualquier combinacion de ellos):
 
