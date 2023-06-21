@@ -1,29 +1,68 @@
-# proyecto
+# Techbook Store
 
-This template should help get you started developing with Vue 3 in Vite.
+Un E-Commerce de libros y laptops
 
-## Recommended IDE Setup
+## Backend
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Si no funciona
+```npm run dev```
+usar
+```npm run start```
 
-## Customize configuration
+El .env incluido es para una base de datos, hosteada por nosotros, que funciona remotamente.
+Puede cambiar el .env para utilizar su propia base de datos.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### Consultas:
+```
+/tags [GET] -> Devuelve todos los tags registrados en el sistema
+```
+```
+/products [GET] -> Devuelve todos los productos registrados en el sistema (Se le pueden especificar ciertos filtros)
 
-## Project Setup
+	Filtros (Se puede usar cualquier combinacion de ellos):
 
-```sh
-npm install
+		?min_precio=[int]
+
+		?max_precio=[int]
+
+		?tipo=['Todo' / 'Laptop' / 'Libro']
+
+		?tag=['Todo' / string]
+
+		?vendor_id=[int]
+```
+```
+/products/id [GET] -> Devuelve el producto registrado en el sistema con el id especificado
+```
+```
+/products [POST] -> Crea un nuevo producto
+
+	Body:
+
+		{
+
+			name: [string],
+
+			description: [string],
+
+			stock: [int],
+
+			image: [url],
+
+			price: [decimal],
+
+			type: ['Todo' / 'Laptop' / 'Libro'],
+
+			vendor_id: [int],
+
+			tags: [ string[] ] (En el caso de que un tag no exista en el sistema, se crea)
+
+		}
 ```
 
-### Compile and Hot-Reload for Development
+## Frontend
 
-```sh
-npm run dev
-```
+Iniciar con
+```npm run dev```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+En el caso de no estar corriendo el backend, no se puede garantizar el funcionamiento completo de la pagina.
