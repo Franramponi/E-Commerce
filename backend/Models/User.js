@@ -1,7 +1,14 @@
-import { DataTypes } from "sequelize";
+import { DataTypes, Model } from "sequelize";
 import sequelize from '../dbConnection/connection.js'
+import bcrypt from 'bcrypt'
 
-const User = sequelize.define('User', {
+class User extends Model {
+  async validatePassword(password) {
+    return await bcrypt.compare(password, this.password);
+  }
+}
+
+User.init({
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -59,10 +66,23 @@ const User = sequelize.define('User', {
     type: DataTypes.INTEGER,
     allowNull: true,
     defaultValue: null
+  },
+  salt: {
+    type: DataTypes.STRING
   }
 },
 {
+  sequelize: sequelize,
+  modelName: "User",
   timestamps: false
+});
+
+User.beforeCreate(async (user) => {
+  const salt = await bcrypt.genSalt();
+  user.salt = salt;
+
+  const hash = await bcrypt.hash(user.password, salt);
+  user.password = hash;
 });
 
 export default User

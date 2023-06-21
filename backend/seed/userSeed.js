@@ -45,7 +45,10 @@ const userSeed = async () => {
 				permission_level: 2,
 				vendor_id: 2
 			}
-		])
+		],
+		{
+			individualHooks: true
+		});
 	}
 	catch (err) {
 		console.error(err.message);
