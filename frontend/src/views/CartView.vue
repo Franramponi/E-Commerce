@@ -37,20 +37,23 @@ export default {
         <h2 class="title">Cart page</h2>
         <div class="invisible-scroll">
           <div class="products-view">
-            <ion-card class="product-card" v-for="p in products" :key="p.id">
-              <ion-card-header>
-                <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
+              <ion-card class="product-card" v-for="p in products" :key="p.id">
+                <ion-card-header>
+                  <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
+                </ion-card-header>
+                
+                <div class="products-img-container">
+                  <ion-img class="products-img" :src="p.image"></ion-img>
+                </div>
+                
+                <ion-card-content class="products-desc">
+                  <span class="products-desc-text">{{ p.description }} </span>
+                  <span class="products-tooltip">{{ p.description }}</span>
+                </ion-card-content>
                 <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
-              </ion-card-header>
-
-              <ion-card-content class="products-desc">
-                {{ p.description }}
-              </ion-card-content>
-              <ion-img class="products-img" :src=p.image></ion-img>
-              <!-- <ion-img :src=getImg(p.image)></ion-img> -->
-              <ion-button class="products-btn" @click="removeFromCart(p.id)">Remove</ion-button>
-            </ion-card>
-          </div>
+                <ion-button class="products-btn" @click="addToCart(p.id)">Add to Cart</ion-button>
+              </ion-card>
+            </div>
         </div>
         
         <Footer/>
