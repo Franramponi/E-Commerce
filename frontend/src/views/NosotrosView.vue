@@ -13,7 +13,7 @@ export default {
         <h2 class="title">Sobre Nosotros</h2>
         <div class="historia">
           <div class="story2">
-            <h3>Un poco de como surgió TechBook Store</h3>
+            <h3>Cómo surgió TechBook Store?</h3>
             <p>
               En una ciudad pequeña, Alex, un apasionado de la tecnología y los
               libros, decidió crear un e-commerce llamado TechBooks. <br />
@@ -57,44 +57,51 @@ export default {
         </div>
 
         <div class="equip">
-          <h3>Nuestro equipo</h3>
+          <h3 class="title">Nuestro equipo</h3>
           <div class="equipo">
             <div class="personal">
               <img src="src/images/carousel/persona4.jpg" alt="" />
-              <p>Ricardo Torres</p>
+              <p class="personal-name">Ricardo Torres</p>
               <p>
-                CEO: <br />
+                CEO:
+              <p>
                 Responsable de establecer la visión y la dirección estratégica
                 de la empresa, además de supervisar la gestión general.
+              </p>
               </p>
             </div>
             <div class="personal">
               <img src="src/images/carousel/persona2.jpg" alt="" />
-              <p>Valeria Garcia</p>
+              <p class="personal-name">Valeria Garcia</p>
               <p>
-                COO: <br />
+                COO:
+              <p>
                 Encargado de supervisar las operaciones diarias de la empresa y
                 asegurarse de que los procesos internos sean eficientes.
+              </p>
               </p>
             </div>
 
             <div class="personal">
               <img src="src/images/carousel/persona1.jpg" alt="" />
-              <p>Gabriel Rodriguez</p>
+              <p class="personal-name">Gabriel Rodriguez</p>
               <p>
-                GER: <br />
+                GER:
+              <p>
                 Encargado de supervisar todas las operaciones de la empresa y
                 tomar decisiones estratégicas.
+              </p>
               </p>
             </div>
             <div class="personal">
               <img src="src/images/carousel/persona3.jpg" alt="" />
-              <p>Laura Lopez</p>
+              <p class="personal-name">Laura Lopez</p>
               <p>
-                CMO: <br />
+                CMO:
+              <p>
                 Encargado de desarrollar y ejecutar estrategias de marketing
                 para promover los productos o servicios de la empresa y atraer a
-                los clientes.
+               los clientes.</p>
               </p>
             </div>
           </div>
@@ -105,6 +112,4 @@ export default {
   </ion-page>
 </template>
 
-<style>
-
-</style>
+<style></style>

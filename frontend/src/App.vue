@@ -1,11 +1,17 @@
 <script>
 import { RouterLink, RouterView } from "vue-router";
-import { IonContent, IonApp, IonHeader, IonRouterOutlet, IonText, IonSearchbar } from "@ionic/vue";
+import { IonContent, IonApp, IonHeader, IonRouterOutlet, IonText, IonSearchbar, IonTab } from "@ionic/vue";
 import { useLoginStore } from "./stores/login";
 import { storeToRefs } from "pinia";
+import productService from "./services/productService";
 
 export default {
-  components: { IonContent, IonApp, IonHeader, IonRouterOutlet, IonText, IonSearchbar },
+  components: { IonContent, IonApp, IonHeader, IonRouterOutlet, IonText, IonSearchbar, IonTab },
+  data() {
+    return {
+      searchTerm: '',
+    }
+  },
   setup() {
     const store = useLoginStore();
     store.startup();
@@ -33,23 +39,28 @@ export default {
             </RouterLink>
           </div>
           <div class="search-bar">
-            <button><font-awesome-icon icon="fa-solid fa-magnifying-glass" class="search-icon"
-                aria-hidden="true" /></button>
-            <input placeholder="Search" type="search" class="search-input">
+              <button type="submit">
+                <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="search-icon" aria-hidden="true" />
+              </button>
+              <input @onclick="searchProducts" v-model="searchTerm" placeholder="Search" type="search" class="search-input">
+
 
 
           </div>
           <div class="navbar-log">
 
-            <RouterLink class="nav-item" to="/favorites"><font-awesome-icon icon="fa-solid fa-heart" v-if="isLogin" class="header-icon" /> </RouterLink>
+            <RouterLink class="nav-item" to="/favorites"><font-awesome-icon icon="fa-solid fa-heart" v-if="isLogin"
+                class="header-icon" /> </RouterLink>
             <RouterLink class="nav-item" v-if="!isLogin" to="/login">Log In</RouterLink>
             <RouterLink class="nav-item" v-if="isLogin" to="/cart"><font-awesome-icon icon="fa-solid fa-cart-shopping"
                 class="header-icon" /></RouterLink>
             <RouterLink class="nav-item" v-if="isLogin" to="/profile"><font-awesome-icon icon="fa-solid fa-user"
                 class="header-icon" /></RouterLink>
             <RouterLink class="nav-item" v-if="isLogin" to="/vendor">Vendor</RouterLink>
-            <RouterLink class="nav-item username" v-if="isLogin" to="/profile">{{ user.name }}</RouterLink>
-            <span @click="logout" class="nav-item logout" v-if="isLogin" to="/logout">(Log Out)</span>
+            <div>
+              <RouterLink class="nav-item username" v-if="isLogin" to="/profile">{{ user.name }}</RouterLink>
+              <span @click="logout" class="nav-item logout" v-if="isLogin" to="/logout">(Log Out)</span>
+            </div>
           </div>
         </div>
         <div class="navbar-default">

@@ -36,7 +36,10 @@ export default {
 				alert("Already logged in");
 			}
 			this.user = {};
-    }
+    },
+	register(){
+		this.$router.push("/register");
+	}
   }
 }
 
@@ -52,6 +55,7 @@ export default {
 						<ion-input class="login-form-input" v-model="user.name" label="Username:" placeholder="username"></ion-input>
 						<ion-input class="login-form-input" v-model="user.pass" label="Password:" type="password" placeholder="password"></ion-input>
 						<ion-button class="login-button" @click="tryLogin">Login</ion-button>
+						<p class="login-register-text">Need an account?<a class="login-register-btn" @click="register">Sing up</a></p>
 					</div>
 				</div>
 				

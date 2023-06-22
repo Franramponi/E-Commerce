@@ -36,7 +36,7 @@ export default {
   <ion-page>
     <ion-content>
       <div class="page-body">
-        <h2 class="title">Profile {{ editing }}</h2>
+        <h2 class="title">Profile </h2>
         <div>
           <div class="profile-items">
             <div class="profile-item">
@@ -85,8 +85,8 @@ export default {
             </div>
           </div>
         </div>
-        <ion-button v-if="!editing" @click="enableEditing()">Edit Profile</ion-button>
-        <ion-button v-if="editing" @click="modifyProfile()">Save</ion-button>
+        <ion-button class="profile-btn" v-if="!editing" @click="enableEditing()">Edit Profile</ion-button>
+        <ion-button class="profile-btn" v-if="editing" @click="modifyProfile()">Save</ion-button>
         <Footer />
       </div>
     </ion-content>

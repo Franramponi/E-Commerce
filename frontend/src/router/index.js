@@ -8,6 +8,7 @@ import VendorView from '../views/VendorView.vue'
 import NosotrosView from '../views/NosotrosView.vue'
 import ContactoView from '../views/ContactoView.vue'
 import NotFoundView from '../views/NotFoundView.vue'
+import RegisterView from '../views/RegisterView.vue'
 import { useLoginStore } from '../stores/login'
 
 const router = createRouter({
@@ -27,6 +28,11 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: LoginView
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: RegisterView
     },
     {
       path: '/cart',

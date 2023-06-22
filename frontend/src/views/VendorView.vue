@@ -70,7 +70,7 @@ export default {
           <ion-button class="product-create-btn" id="createProductBtn">Create Product</ion-button>
         </div>
 
-        <ion-modal trigger="createProductBtn">
+        <ion-modal class="create-product-popup" trigger="createProductBtn">
           <ion-content class="popup">
             <div class="popup-content">
               <h3 class="popup-title">Create Product</h3>
