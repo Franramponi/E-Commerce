@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { userService } from '../services/services.js'
 
 export const useLoginStore = defineStore("login", {
   state: () => {
@@ -7,10 +8,14 @@ export const useLoginStore = defineStore("login", {
       user: { name: '', email: '', creditCard:'', address:'', document:'', phoneNumber:'', permLevel: 0, vendorID: -1 } };
   },
   actions: {
+    errorCatch(err) {
+      console.log(err);
+      alert(err);
+    },
     startup() {
       const user = JSON.parse(localStorage.getItem("user"));
       if (user != null) {
-        this.login(user);
+        this.setLogin(user);
       }
     },
     logout() {
@@ -19,10 +24,51 @@ export const useLoginStore = defineStore("login", {
       this.user = {}
       localStorage.removeItem("user");
     },
-    login(user) {
+    setLogin(userData) {
       this.isLogin = true;
-      this.user = user;
+      this.user = userData;
       localStorage.setItem("user", JSON.stringify(this.user));
+    },
+    login(userData) {
+      const data = { name: userData.name, password: userData.pass };
+      userService.login(data, (res) => {
+        if (res.data.success == true) {
+          const user = {
+            name: res.data.user.name,
+            email: res.data.user.email,
+            creditCard: res.data.user.credit_card,
+            address: res.data.user.address,
+            document: res.data.user.document,
+            phoneNumber: res.data.user.phone_number,
+            permLevel: res.data.user.permission_level,
+            vendorID: res.data.user.vendor_id
+          }
+          this.setLogin(user);
+        }
+        else {
+          alert("Failed to login");
+        }
+      }, this.errorCatch);
+    },
+    register(userData) {
+      const data = {
+        name: userData.name,
+        password: userData.pass,
+        email: userData.email,
+        credit_card: userData.creditCard,
+        address: userData.address,
+        document: userData.document,
+        phone_number: userData.phoneNumber,
+        vendor: (userData.vendor == 'yes' ? 'true' : 'false') //Can't register as vendor for some reason
+      }
+      userService.createUser(data, (res) => {
+        if (res.data.success == true) {
+          this.login({ name: data.name, pass: data.password });
+        }
+        else {
+          alert("Failed to login");
+        }
+       }, this.errorCatch);
     },
     hasPermission(requiredPerm){
       return this.user.permLevel >= requiredPerm;

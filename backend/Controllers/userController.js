@@ -95,18 +95,24 @@ class UserController {
 
 		try {
 			const { name, password } = req.body;
-			const user = await User.findOne({
+			let user = await User.findOne({
 				where: {
           name: name
         }
 			});
 
 			if (!user) throw new Error("User could not be found");
-
+      
 			const compare = await user.validatePassword(password);
 			if (!compare) throw new Error("Password was incorrect");
 
-			res.status(200).send({ success: true, message: "Logged in" });
+      user = await User.findOne({
+				where: {
+          name: name
+        },
+				attributes: ["name", "email", "credit_card", "address", "document", "phone_number", "permission_level", "vendor_id"]
+			});
+			res.status(200).send({ success: true, message: "Logged in", user });
 
 		} catch(err) {
 			console.error(err);

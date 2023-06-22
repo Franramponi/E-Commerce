@@ -7,6 +7,6 @@ const userController = new UserController()
 
 userRoutes.get('/:name', userController.getUsersByName);
 userRoutes.post('/', userController.createUser);
-userRoutes.get('/login', userController.login);
+userRoutes.post('/login', userController.login);
 
 export default userRoutes
