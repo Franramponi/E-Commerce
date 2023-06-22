@@ -80,7 +80,7 @@ export default {
       tagService.loadData((res) => {
         let tags = res.data.tags.map((e) => { return e.name });
         this.filters.forEach((e) => { 
-          if (e.name === "tag") { e.options = e.options.concat(tags) } 
+          if (e.name === "tag") { e.options = ['Todo']; e.options = e.options.concat(tags) } 
         });
       }, this.errorCatch);
       productService.loadData(this.filters, (res) => { this.products = res.data.products; }, this.errorCatch);
