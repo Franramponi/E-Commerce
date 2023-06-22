@@ -359,19 +359,63 @@ ion-card {
 
 .products-desc {
 	color: var(--darkermain);
-	height: 3.5rem;
-	text-overflow: ellipsis;
+	height: 2.6rem;
+}
+
+.products-desc-text {
+	display: block;
+	max-width: 100%;
 	overflow: hidden;
 	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
+.products-desc .products-tooltip {
+  visibility: hidden;
+  width: 18rem;
+  background-color: var(--third);
+  color: var(--primary);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.products-desc .products-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--third) transparent transparent transparent;
+}
+
+.products-desc:hover .products-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*
 .products-desc:hover {
 	overflow: visible;
-	white-space: normal;
+	white-space: unset;
 	height: auto;
-	/* just added this line */
 }
+*/
 
+.products-img-container {
+	height: 15rem;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .products-img {
 	max-height: 20rem;

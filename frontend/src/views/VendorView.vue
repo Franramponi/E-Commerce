@@ -111,41 +111,18 @@ export default {
           <ion-card class="product-card" v-for="p in products" :key="p.id">
             <ion-card-header>
               <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
-              <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
             </ion-card-header>
-
-            <ion-card-content class="products-desc">{{ p.description }}</ion-card-content>
-            <ion-img class="products-img" :src="p.image"></ion-img>
-            <div class="vendor-btn-container">
-                <ion-button class="vendor-btn" @click="removeEntry(p.id)">Delete</ion-button>
-                <ion-input class="vendor-input" type="number" v-model="p.stock"></ion-input>
-                <ion-button class="vendor-btn" @click="modifyEntry(p.id)">Update Stock</ion-button>
+            
+            <div class="products-img-container">
+              <ion-img class="products-img" :src="p.image"></ion-img>
             </div>
-          </ion-card>
 
-          <ion-card class="product-card" v-for="p in products" :key="p.id">
-            <ion-card-header>
-              <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
-              <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
-            </ion-card-header>
+            <ion-card-content class="products-desc">
+              <span class="products-desc-text">{{ p.description }} </span>
+              <span class="products-tooltip">{{ p.description }}</span>
+            </ion-card-content>
+            <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
 
-            <ion-card-content class="products-desc">{{ p.description }}</ion-card-content>
-            <ion-img class="products-img" :src="p.image"></ion-img>
-            <div class="vendor-btn-container">
-                <ion-button class="vendor-btn" @click="removeEntry(p.id)">Delete</ion-button>
-                <ion-input class="vendor-input" type="number" v-model="p.stock"></ion-input>
-                <ion-button class="vendor-btn" @click="modifyEntry(p.id)">Update Stock</ion-button>
-            </div>
-          </ion-card>
-
-          <ion-card class="product-card" v-for="p in products" :key="p.id">
-            <ion-card-header>
-              <ion-card-title class="products-name">{{ p.name }}</ion-card-title>
-              <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
-            </ion-card-header>
-
-            <ion-card-content class="products-desc">{{ p.description }}</ion-card-content>
-            <ion-img class="products-img" :src="p.image"></ion-img>
             <div class="vendor-btn-container">
                 <ion-button class="vendor-btn" @click="removeEntry(p.id)">Delete</ion-button>
                 <ion-input class="vendor-input" type="number" v-model="p.stock"></ion-input>
