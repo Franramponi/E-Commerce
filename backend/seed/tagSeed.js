@@ -2,23 +2,41 @@ import { Tag } from '../Models/models.js'
 
 const tagSeed = async () => {
 	try {
-		await Tag.bulkCreate([
+		const list = [
 			{ 
-				name: "tag1"
+				name: "enciclopedia"
 			},
 			{ 
-				name: "tag2"
+				name: "niños"
 			},
 			{ 
-				name: "tag3"
+				name: "pikachu"
 			},
 			{ 
-				name: "tag4"
+				name: "pokemon"
 			},
 			{ 
-				name: "tag5"
+				name: "laptop"
+			},
+			{ 
+				name: "notebook"
+			},
+			{ 
+				name: "asus"
+			},
+			{ 
+				name: "gris"
+			},
+			{ 
+				name: "gamer"
 			}
-		])
+		]
+
+		
+		for (let i = 0; i < list.length; i++) {
+			await Tag.create(list[i]);
+		}
+
 	}
 	catch (err) {
 		console.error(err.message);

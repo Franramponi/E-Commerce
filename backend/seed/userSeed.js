@@ -2,7 +2,7 @@ import { User } from '../Models/models.js'
 
 const userSeed = async () => {
 	try {
-		await User.bulkCreate([
+		const list = [
 			{ 
 				name: "admin",
 				email: "admin@email.com",
@@ -45,10 +45,11 @@ const userSeed = async () => {
 				permission_level: 2,
 				vendor_id: 2
 			}
-		],
-		{
-			individualHooks: true
-		});
+		]
+
+		for (let i = 0; i < list.length; i++) {
+			await User.create(list[i]);
+		}
 	}
 	catch (err) {
 		console.error(err.message);

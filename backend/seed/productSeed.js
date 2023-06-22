@@ -2,44 +2,30 @@ import { Product } from '../Models/models.js'
 
 const productSeed = async () => {
 	try {
-		await Product.bulkCreate([
+		const list = [
 			{
-				name: "Name1",
-				description: "Description1",
-				stock: 1,
-				image: "1",
-				price: 111.11,
+				name: "Acer Portátil Aspire 5",
+				description: "Notebook Acer Aspire 5 A515-57T steel gray táctil 15.6, Intel Core i7 1255U 16GB de RAM 512GB SSD, Intel Iris Xe Graphics G7 96EUs 1920x1080px Windows 11 Home",
+				stock: 10,
+				image: "https://i.imgur.com/Frzlpfb.jpeg",
+				price: 1200.00,
 				type_id: 1,
 				vendor_id: 1
 			},
 			{
-				name: "Name2",
-				description: "Description2",
-				stock: 2,
-				image: "2",
-				price: 222.22,
+				name: "ASUS ROG Strix G16",
+				description: "Notebook Asus Rog Strix G16 I7-13650hx 16gb 512gb Rtx4060",
+				stock: 10,
+				image: "https://i.imgur.com/Ta7wwhq.jpeg",
+				price: 1968.00,
 				type_id: 1,
-				vendor_id: 2
-			},
-			{
-				name: "Name3",
-				description: "Description3",
-				stock: 3,
-				image: "3",
-				price: 333.33,
-				type_id: 2,
 				vendor_id: 1
-			},
-			{
-				name: "Name4",
-				description: "Description4",
-				stock: 4,
-				image: "4",
-				price: 444.44,
-				type_id: 2,
-				vendor_id: 2
 			}
-		])
+		]
+		
+		for (let i = 0; i < list.length; i++) {
+			await Product.create(list[i]);
+		}
 	}
 	catch (err) {
 		console.error(err.message);
