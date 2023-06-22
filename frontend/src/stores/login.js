@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { userService } from '../services/services.js'
+import router from '../router/index.js'
 
 export const useLoginStore = defineStore("login", {
   state: () => {
@@ -44,6 +45,7 @@ export const useLoginStore = defineStore("login", {
             vendorID: res.data.user.vendor_id
           }
           this.setLogin(user);
+          router.push("/");
         }
         else {
           alert("Failed to login");
