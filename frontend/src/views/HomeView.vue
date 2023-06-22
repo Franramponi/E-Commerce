@@ -97,10 +97,10 @@ export default {
         <div class="home-container">
          
           <div class="home-cards">
-            <RouterLink to="/products" class="card-item">
-              <p>Notebooks</p>
+            <RouterLink :to="{ name: 'products', params: { tipo: 'Laptop' } }" class="card-item">
+              <p>Laptops</p>
             </RouterLink>
-            <RouterLink to="/products" class="card-item">
+            <RouterLink :to="{ name: 'products', params: { tipo: 'Libro' } }" class="card-item">
               <p>Libros</p>
             </RouterLink>
           </div>

@@ -20,9 +20,9 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/products',
+      path: '/products/:tipo?',
       name: 'products',
-      component: ProductsView,
+      component: ProductsView
     },
     {
       path: '/login',

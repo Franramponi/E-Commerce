@@ -59,6 +59,11 @@ export default {
 	},
   mounted() {
     //Esto corre cuando la pagina abre
+    if (this.$route.params.tipo) {
+      this.filters.forEach((e) => { 
+          if (e.name === "tipo") { e.defaultValue = this.$route.params.tipo } 
+        });
+    }
     this.filters.forEach(e => {
       console.log(e.defaultValue);
       e.value = e.defaultValue;
