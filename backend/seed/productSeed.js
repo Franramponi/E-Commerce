@@ -20,6 +20,15 @@ const productSeed = async () => {
 				price: 1968.00,
 				type_id: 1,
 				vendor_id: 1
+			},
+			{
+				name: "Enciclopedia Pokemon",
+				description: "enciclopedia pokemon",
+				stock: 4,
+				image: "https://i.imgur.com/8ULjUq9.png",
+				price: 400.00,
+				type_id: 2,
+				vendor_id: 1
 			}
 		]
 		
