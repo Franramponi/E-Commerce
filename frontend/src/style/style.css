@@ -68,12 +68,9 @@ input[type='number']::-webkit-outer-spin-button {
 	width: 30rem;
 	
 }
-.search-bar > form{
+.search-bar > button{
 	position: absolute;
 	top: -2.2rem;
-}
-
-.search-bar > form > button{
 	background-color: transparent;
 }
 
@@ -93,8 +90,8 @@ input[type='number']::-webkit-outer-spin-button {
 	color: #fff;
 	z-index: 100;
 	position: relative;
-	top: 1.5rem;
-	left: 0.8rem;
+	top: 2.5rem;
+	right: 13.7rem;
 }
 
 .header-icon {
