@@ -51,7 +51,7 @@ export default {
                   <span class="products-tooltip">{{ p.description }}</span>
                 </ion-card-content>
                 <ion-card-subtitle class="products-price">${{ p.price }}</ion-card-subtitle>
-                <ion-button class="products-btn" @click="addToCart(p.id)">Add to Cart</ion-button>
+                <ion-button class="products-btn" @click="removeFromCart(p.id)">Remove</ion-button>
               </ion-card>
             </div>
         </div>
