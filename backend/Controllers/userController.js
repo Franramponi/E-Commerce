@@ -56,7 +56,7 @@ class UserController {
     try {
       const { name, email, credit_card, address, phone_number } = req.body;
       
-        const [amountUserRowsUpdated] = await User.update( 
+        const [userRowUpdated] = await User.update( 
           {
             email: email,
             credit_card: credit_card,
@@ -69,8 +69,8 @@ class UserController {
             }
           });
     
-        if (amountUserRowsUpdated === 0) {
-          res.status(404).send({ success: false, message: "User not found" });
+        if (userRowUpdated === 0) {
+          res.status(404).send({ success: false, message: "User not found, could not update" });
           return;
         }
     
@@ -86,12 +86,12 @@ class UserController {
 		res.header("Access-Control-Allow-Origin", "*");
     try {
 			const { name } = req.params;
-      const amountUserRowsDeleted = await User.destroy({
+      const userRowDeleted = await User.destroy({
         where: {
           name: name //TO DO: Revisar si con esta condición es suficiente, por si se pueden llegar a crear usuarios con el mismo nombre de usuario
         }
       });
-      if (amountUserRowsDeleted === 0) {
+      if (userRowDeleted === 0) {
         res.status(404).send({ success: false, message: "User not found, could not delete" });
         return;
       }
