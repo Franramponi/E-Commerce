@@ -20,7 +20,7 @@ class UserController {
       res.status(200).send({ success: true, message: "Got user by name", user });
     } catch (error) {
       console.error(error);
-      res.status(500).send({ message: 'Error al obtener el usuario.' });
+      res.status(500).send({ success: false, message: 'Error al obtener el usuario.' });
     }
   };
 
@@ -45,7 +45,7 @@ class UserController {
       res.status(200).send({ success: true, message: "Created user" });
     } catch (error) {
       console.error(error);
-      res.status(500).send({ message: 'Error al crear el usuario.' });
+      res.status(500).send({ success: false, message: 'Error al crear el usuario.' });
     }
   };
 
@@ -70,14 +70,21 @@ class UserController {
           });
     
         if (userRowUpdated === 0) {
-          res.status(404).send({ success: false, message: "User not found, could not update" });
+          res.status(500).send({ success: false, message: "User not found, could not update" });
           return;
         }
+
+        const user = await User.findOne({
+          where: {
+            name: name
+          },
+          attributes: ["name", "email", "credit_card", "address", "document", "phone_number"]
+        });
     
-        res.status(200).send({ success: true, message: "User " + name + " updated" });
+        res.status(200).send({ success: true, message: "User updated", user });
       } catch (error) {
         console.error(error);
-        res.status(500).send({ message: 'Error trying to update the user.' });
+        res.status(500).send({ success: false, message: 'Error trying to update the user.' });
       }
   };
 	
@@ -88,17 +95,19 @@ class UserController {
 			const { name } = req.params;
       const userRowDeleted = await User.destroy({
         where: {
-          name: name //TO DO: Revisar si con esta condición es suficiente, por si se pueden llegar a crear usuarios con el mismo nombre de usuario
+          name: name
         }
       });
+
       if (userRowDeleted === 0) {
-        res.status(404).send({ success: false, message: "User not found, could not delete" });
+        res.status(500).send({ success: false, message: "User not found, could not delete" });
         return;
       }
-      res.status(200).send({ success: true, message: "User " + name + " deleted" });
+
+      res.status(200).send({ success: true, message: "User deleted" });
     } catch (error) {
       console.error(error);
-      res.status(500).send({ message: 'Error trying to delete the user.' });
+      res.status(500).send({ success: false, message: 'Error trying to delete the user.' });
     }
 	}
 
@@ -129,7 +138,7 @@ class UserController {
 
 		} catch(err) {
 			console.error(err);
-			res.status(400).send({ success: false, result: err.message });
+			res.status(500).send({ success: false, result: err.message });
 		}
 	}
 }

@@ -36,9 +36,8 @@ export default {
       this.isDeleteConfirmationModalOpen = false;
     },
     deleteProfile(){
-      this.deleteUser({...this.userProfile});
+      this.deleteUser();
       this.isDeleteConfirmationModalOpen = false;
-      this.$router.push("/login");
     }
   }
 }

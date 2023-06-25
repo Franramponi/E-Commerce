@@ -24,6 +24,7 @@ export const useLoginStore = defineStore("login", {
       //Vacío el usuario al cerrar sesión
       this.user = {}
       localStorage.removeItem("user");
+      router.push("/login");
     },
     setLogin(userData) {
       this.isLogin = true;
@@ -74,29 +75,30 @@ export const useLoginStore = defineStore("login", {
     },
     hasPermission(requiredPerm){
       return this.user.permLevel >= requiredPerm;
-
-      //return this.user.permissions.filter((p) => p==access).length > 0
-      // El filter devuelve una lista, sie s mayor que 0 tendria permisos y ent al caso da True.
-      // Si quiero que un admin tenga acceso a todo, a tal user le paso que es admin y aca directamente le paso true.
     },
     modifyUser(userProfile){
-    userService.updateUser(this.user.name, userProfile, (res) => {
-      if (res.data.success == true) {
-        this.user = { ...this.user, ...userProfile };
-      } else {
-        alert("Error. Failed to update user " + this.user.name);
-      }
-    }, this.errorCatch);
-  },
-  deleteUser(userProfile){
-    userService.deleteUser(userProfile.name, (res) => {
-      if (res.data.success == true) {
-        this.user = null;
-        console.log("paso del login, se eliminó ok supuestamente")
-      } else {
-        alert("Error. Failed to update user " + this.user.name);
-      }
-    }, this.errorCatch);
-  }
+      userService.updateUser(this.user.name, userProfile, (res) => {
+        if (res.data.success == true) {
+          this.user = { ...this.user,
+            address: res.data.user.address,
+            creditCard: res.data.user.credit_card,
+            document: res.data.user.document,
+            email: res.data.user.email,
+            phoneNumber: res.data.user.phone_number
+          };
+        } else {
+          alert("Failed to update user " + this.user.name);
+        }
+      }, this.errorCatch);
+    },
+    deleteUser(){
+      userService.deleteUser(this.user.name, (res) => {
+        if (res.data.success == true) {
+          this.logout();
+        } else {
+          alert("Failed to delete user " + this.user.name);
+        }
+      }, this.errorCatch);
+    }
   }
 });
