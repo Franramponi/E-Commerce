@@ -73,7 +73,7 @@ export default {
           <div class="profile-items">
             <div class="profile-item">
               <p class="profile-text">Phone number:</p>
-              <ion-input class="profile-input" :value="user.phoneNumber" v-model="userProfile.phoneNumber" :disabled="!editing"></ion-input>
+              <ion-input class="profile-input" :value="user.phoneNumber" v-model="userProfile.phone_number" :disabled="!editing"></ion-input>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default {
           <div class="profile-items">
             <div class="profile-item">
               <p class="profile-text">Credit Card:</p>
-              <ion-input class="profile-input" :value="user.creditCard" v-model="userProfile.creditCard" :disabled="!editing"></ion-input>
+              <ion-input class="profile-input" :value="user.creditCard" v-model="userProfile.credit_card" :disabled="!editing"></ion-input>
             </div>
           </div>
         </div>
