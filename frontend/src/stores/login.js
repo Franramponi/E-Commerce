@@ -80,11 +80,13 @@ export const useLoginStore = defineStore("login", {
       // Si quiero que un admin tenga acceso a todo, a tal user le paso que es admin y aca directamente le paso true.
     },
     modifyUser(userProfile){
-      this.user.email = userProfile.email;
-      this.user.address = userProfile.address;
-      this.user.phoneNumber = userProfile.phoneNumber;
-      this.user.creditCard = userProfile.creditCard;
-      localStorage.setItem("user", JSON.stringify(this.user));
-    }
+    userService.updateUser(this.user.name, userProfile, (res) => {
+      if (res.data.success == true) {
+        this.user = { ...this.user, ...userProfile };
+      } else {
+        alert("Error. Failed to update user " + this.user.name);
+      }
+    }, this.errorCatch);
+  }
   }
 });

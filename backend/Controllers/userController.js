@@ -48,26 +48,37 @@ class UserController {
       res.status(500).send({ message: 'Error al crear el usuario.' });
     }
   };
-
-  // TODO: Actualizar usuario
   updateUserByName = async (req, res) => {
-		res.header("Access-Control-Allow-Origin", "*");
-    
+    res.header("Access-Control-Allow-Origin", "*");
+  
     try {
-			const { name } = req.params;
-      const user = await User.findOne({
-        where: {
-					name: name
-				},
-				attributes: ["name", "email", "permission_level", "vendor_id"]
-      });
-      if (!user.dataValues) throw new Error("User could not be gotten");
-      res.status(200).send({ success: true, message: "Got user by name", user });
-    } catch (error) {
-      console.error(error);
-      res.status(500).send({ message: 'Error al obtener el usuario.' });
-    }
-	}
+      const { name, email, credit_card, address, phone_number } = req.body;
+      
+        const [amountUserRowsUpdated] = await User.update( 
+          {
+            email: email,
+            credit_card: credit_card,
+            address: address,
+            phone_number: phone_number
+          },
+          {
+            where: {
+              name: name
+            }
+          }
+        );
+    
+        if (amountUserRowsUpdated === 0) {
+          res.status(404).send({ success: false, message: "User not found" });
+          return;
+        }
+    
+        res.status(200).send({ success: true, message: "User " + name + " updated" });
+      } catch (error) {
+        console.error(error);
+        res.status(500).send({ message: 'Error trying to update the user.' });
+      }
+  };
 	
   // TODO: Borrar usuario
 	deleteUserByID = async (req, res) => {

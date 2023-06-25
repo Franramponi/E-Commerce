@@ -19,6 +19,11 @@ export default {
 			.then(then)
 			.catch(errorCatch);
 	},
+	updateUser(name, user, then, errorCatch) {
+		apiClient.put('/' + name, user)
+			.then(then)
+			.catch(errorCatch);
+	},
 	login(user, then, errorCatch) {
 		apiClient.post('/login', user)
 			.then(then)
