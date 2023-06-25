@@ -48,6 +48,8 @@ class UserController {
       res.status(500).send({ message: 'Error al crear el usuario.' });
     }
   };
+
+  //Modificar un usuario según su nombre de usuario
   updateUserByName = async (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
   
@@ -65,8 +67,7 @@ class UserController {
             where: {
               name: name
             }
-          }
-        );
+          });
     
         if (amountUserRowsUpdated === 0) {
           res.status(404).send({ success: false, message: "User not found" });
@@ -80,23 +81,24 @@ class UserController {
       }
   };
 	
-  // TODO: Borrar usuario
-	deleteUserByID = async (req, res) => {
+  // Borrar un usuario según su nombre de usuario
+	deleteUserByName = async (req, res) => {
 		res.header("Access-Control-Allow-Origin", "*");
-    
     try {
 			const { name } = req.params;
-      const user = await User.findOne({
+      const amountUserRowsDeleted = await User.destroy({
         where: {
-					name: name
-				},
-				attributes: ["name", "email", "permission_level", "vendor_id"]
+          name: name //TO DO: Revisar si con esta condición es suficiente, por si se pueden llegar a crear usuarios con el mismo nombre de usuario
+        }
       });
-      if (!user.dataValues) throw new Error("User could not be gotten");
-      res.status(200).send({ success: true, message: "Got user by name", user });
+      if (amountUserRowsDeleted === 0) {
+        res.status(404).send({ success: false, message: "User not found, could not delete" });
+        return;
+      }
+      res.status(200).send({ success: true, message: "User " + name + " deleted" });
     } catch (error) {
       console.error(error);
-      res.status(500).send({ message: 'Error al obtener el usuario.' });
+      res.status(500).send({ message: 'Error trying to delete the user.' });
     }
 	}
 

@@ -87,6 +87,16 @@ export const useLoginStore = defineStore("login", {
         alert("Error. Failed to update user " + this.user.name);
       }
     }, this.errorCatch);
+  },
+  deleteUser(userProfile){
+    userService.deleteUser(userProfile.name, (res) => {
+      if (res.data.success == true) {
+        this.user = null;
+        console.log("paso del login, se eliminó ok supuestamente")
+      } else {
+        alert("Error. Failed to update user " + this.user.name);
+      }
+    }, this.errorCatch);
   }
   }
 });

@@ -1,22 +1,24 @@
 <script>
-import { IonPage, IonContent, IonCardSubtitle, IonImg, IonButton, IonInput, IonItem } from '@ionic/vue'
+import { IonPage, IonContent, IonCardSubtitle, IonImg, IonButton, IonInput, IonItem, IonModal} from '@ionic/vue'
 //import json from '../data/products.json'
 import { storeToRefs } from 'pinia';
 import { useLoginStore } from '../stores/login.js'
 import Footer from './Footer.vue'
 
 export default {
-  components: { Footer, IonPage, IonContent, IonCardSubtitle, IonImg, IonButton, IonInput, IonItem },
+  components: { Footer, IonPage, IonContent, IonCardSubtitle, IonImg, IonButton, IonInput, IonItem, IonModal },
   setup() {
     const store = useLoginStore();
     const { user } = storeToRefs(store);
     const { modifyUser } = store;
-    return { user, modifyUser };
+    const { deleteUser } = store;
+    return { user, modifyUser, deleteUser};
   },
   data() {
 		return {
 			userProfile: this.user,
-      editing: false
+      editing: false,
+      isDeleteConfirmationModalOpen: false
 		}
 	},
   methods: {
@@ -26,6 +28,17 @@ export default {
     modifyProfile() {
       this.modifyUser({...this.userProfile})
       this.editing = false;
+    },
+    showDeleteUserModal() {
+    this.isDeleteConfirmationModalOpen = true;
+    },
+    cancelDeleteProfile() {
+      this.isDeleteConfirmationModalOpen = false;
+    },
+    deleteProfile(){
+      this.deleteUser({...this.userProfile});
+      this.isDeleteConfirmationModalOpen = false;
+      this.$router.push("/login");
     }
   }
 }
@@ -87,6 +100,12 @@ export default {
         </div>
         <ion-button class="profile-btn" v-if="!editing" @click="enableEditing()">Edit Profile</ion-button>
         <ion-button class="profile-btn" v-if="editing" @click="modifyProfile()">Save</ion-button>
+        <ion-button class="profile-btn" v-if="editing" @click="showDeleteUserModal()">Delete Profile</ion-button>
+          <ion-modal :is-open="isDeleteConfirmationModalOpen">
+              <p>Are you sure you want to delete your profile?</p>
+              <ion-button @click="deleteProfile()">Confirm</ion-button>
+              <ion-button @click="cancelDeleteProfile()">Cancel</ion-button>
+          </ion-modal>
         <Footer />
       </div>
     </ion-content>
