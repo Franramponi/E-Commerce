@@ -27,7 +27,7 @@ Puede cambiar el .env para utilizar su propia base de datos.
 		?vendor_id=[int]
 ```
 ```
-/products/id [GET] -> Devuelve el producto registrado en el sistema con el id especificado
+/products/[id] [GET] -> Devuelve el producto registrado en el sistema con el id especificado
 ```
 ```
 /products [POST] -> Crea un nuevo producto
@@ -45,7 +45,7 @@ Puede cambiar el .env para utilizar su propia base de datos.
 		}
 ```
 ```
-/users/name [GET] -> Devuelve el usuario registrado en el sistema con el nombre especificado
+/users/[name] [GET] -> Devuelve el usuario registrado en el sistema con el nombre especificado
 ```
 ```
 /users [POST] -> Crea un nuevo usuario
@@ -61,6 +61,22 @@ Puede cambiar el .env para utilizar su propia base de datos.
 			phone_number: [string (10 caracteres)],
 			vendor: [bool]
 		}
+```
+```
+/users/[name] [PUT] -> Modificar datos de un usuario
+
+	Body:
+		{
+			name: [string],
+			email: [string (email)],
+			credit_card: [string (10 caracteres)],
+			address: [string],
+			document: [string (8 caracteres)],
+			phone_number: [string (10 caracteres)]
+		}
+```
+```
+/users/[name] [DELETE] -> Borra un usuario
 ```
 ```
 /users/login [GET] -> Verificar el login de un usuario
