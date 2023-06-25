@@ -61,7 +61,6 @@ class UserController {
             email: email,
             credit_card: credit_card,
             address: address,
-            document: address,
             phone_number: phone_number
           },
           {
