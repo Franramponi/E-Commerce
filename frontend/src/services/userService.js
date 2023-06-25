@@ -24,6 +24,11 @@ export default {
 			.then(then)
 			.catch(errorCatch);
 	},
+	deleteUser(name, then, errorCatch) {
+		apiClient.delete('/' + name)
+			.then(then)
+			.catch(errorCatch);
+	},
 	login(user, then, errorCatch) {
 		apiClient.post('/login', user)
 			.then(then)
