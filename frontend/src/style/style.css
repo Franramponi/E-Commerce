@@ -556,11 +556,27 @@ ion-card {
 	text-align: center;
 }
 
-.profile-btn{
+.profile-btn {
 	width: 50%;
 	text-align: center;
 	align-self: center;
 	margin-block: 3%;
+}
+
+.delete-profile {
+	--width: 21rem;
+	--height: 6rem;
+	text-align: center;
+}
+
+.delete-profile-content {
+	padding: 0.5rem;
+}
+
+.delete-profile-btn-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
 
 /* FOOTER */

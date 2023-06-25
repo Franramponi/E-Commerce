@@ -53,59 +53,47 @@ export default {
         <div>
           <div class="profile-items">
             <div class="profile-item">
-              <p class="profile-text">Username:</p>
-              <ion-input class="profile-input" :value="user.name" disabled></ion-input>
+              <label class="profile-text" for='username'>Username:</label>
+              <ion-input class="profile-input" name='username' :value="user.name" disabled></ion-input>
             </div>
-          </div>
-        </div>
-        <div>
-          <div class="profile-items">
             <div class="profile-item">
-              <p class="profile-text">Email:</p>
-              <ion-input class="profile-input" :value="user.email" v-model="userProfile.email" :disabled="!editing"></ion-input>
+              <label class="profile-text" for='email'>Email:</label>
+              <ion-input class="profile-input" name='email' :value="user.email" v-model="userProfile.email" :disabled="!editing"></ion-input>
             </div>
-          </div>
-        </div>
-        <div>
-          <div class="profile-items">
             <div class="profile-item">
-              <p class="profile-text">Document:</p>
-              <ion-input class="profile-input" :value="user.document" disabled></ion-input>
+              <label class="profile-text" for='document'>Document:</label>
+              <ion-input class="profile-input" name='document' :value="user.document" disabled></ion-input>
             </div>
-          </div>
-        </div>
-        <div>
-          <div class="profile-items">
             <div class="profile-item">
-              <p class="profile-text">Address</p>
-              <ion-input class="profile-input" :value="user.address" v-model="userProfile.address" :disabled="!editing"></ion-input>
+              <label class="profile-text" for='address'>Address</label>
+              <ion-input class="profile-input" name='address' :value="user.address" v-model="userProfile.address" :disabled="!editing"></ion-input>
             </div>
-          </div>
-        </div>
-        <div>
-          <div class="profile-items">
             <div class="profile-item">
-              <p class="profile-text">Phone number:</p>
-              <ion-input class="profile-input" :value="user.phoneNumber" v-model="userProfile.phone_number" :disabled="!editing"></ion-input>
+              <label class="profile-text" for='phoneNumber'>Phone number:</label>
+              <ion-input class="profile-input" name='phoneNumber' :value="user.phoneNumber" v-model="userProfile.phone_number" :disabled="!editing"></ion-input>
             </div>
-          </div>
-        </div>
-        <div>
-          <div class="profile-items">
             <div class="profile-item">
-              <p class="profile-text">Credit Card:</p>
-              <ion-input class="profile-input" :value="user.creditCard" v-model="userProfile.credit_card" :disabled="!editing"></ion-input>
+              <label class="profile-text" for='creditCard'>Credit Card:</label>
+              <ion-input class="profile-input" name='creditCard' :value="user.creditCard" v-model="userProfile.credit_card" :disabled="!editing"></ion-input>
             </div>
           </div>
         </div>
         <ion-button class="profile-btn" v-if="!editing" @click="enableEditing()">Edit Profile</ion-button>
         <ion-button class="profile-btn" v-if="editing" @click="modifyProfile()">Save</ion-button>
         <ion-button class="profile-btn" v-if="editing" @click="showDeleteUserModal()">Delete Profile</ion-button>
-          <ion-modal :is-open="isDeleteConfirmationModalOpen">
+
+        <ion-modal class="delete-profile" :is-open="isDeleteConfirmationModalOpen">
+          <ion-content >
+            <div class="delete-profile-content">
               <p>Are you sure you want to delete your profile?</p>
-              <ion-button @click="deleteProfile()">Confirm</ion-button>
-              <ion-button @click="cancelDeleteProfile()">Cancel</ion-button>
-          </ion-modal>
+              <div class="delete-profile-btn-container">
+                <ion-button @click="cancelDeleteProfile()">Cancel</ion-button>
+                <ion-button @click="deleteProfile()">Confirm</ion-button>
+              </div>
+            </div>
+          </ion-content>
+        </ion-modal>
+
         <Footer />
       </div>
     </ion-content>
