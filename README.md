@@ -71,7 +71,6 @@ Puede cambiar el .env para utilizar su propia base de datos.
 			email: [string (email)],
 			credit_card: [string (10 caracteres)],
 			address: [string],
-			document: [string (8 caracteres)],
 			phone_number: [string (10 caracteres)]
 		}
 ```
