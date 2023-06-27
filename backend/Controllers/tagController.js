@@ -6,7 +6,6 @@ class TagController {
 
   // Obtener todos los tags
   getTags = async (req, res) => {
-    res.header("Access-Control-Allow-Origin", "*");
     console.log(req.query);
     try {
       

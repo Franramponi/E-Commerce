@@ -6,7 +6,6 @@ class ProductController {
 
   // Obtener todos los productos
   getProducts = async (req, res) => {
-    res.header("Access-Control-Allow-Origin", "*");
     console.log(req.query);
     try {
       const options = {
@@ -59,8 +58,6 @@ class ProductController {
 
   // Obtener producto especifico
   getProductByID = async (req, res) => {
-    res.header("Access-Control-Allow-Origin", "*");
-
     try {
 			const { id } = req.params;
       const product = await Product.findOne({
@@ -79,7 +76,6 @@ class ProductController {
   
   // Crear un nuevo producto
   createProduct = async (req, res) => {
-    res.header("Access-Control-Allow-Origin", "*");
     const { name, description, stock, image, price, type, vendor_id, tags } = req.body;
     console.log(req.body);
     
